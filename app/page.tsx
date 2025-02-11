@@ -1,101 +1,176 @@
-import Image from "next/image";
+import Head from "next/head"
+import Image from "next/image"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { MapPin, Compass, Map } from "lucide-react"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      <>
+        <Head>
+          <title>KayakInSweden - Discover the Best Kayak Rentals in Sweden</title>
+          <meta
+              name="description"
+              content="Find and explore the best kayak rental locations across Sweden's beautiful lakes, coastlines, and waterways. Plan your perfect kayaking adventure today!"
+          />
+          <meta
+              name="keywords"
+              content="kayak rentals, Sweden, kayaking, outdoor adventure, Stockholm archipelago, Göta Canal, Bohuslän Coast"
+          />
+        </Head>
+        <div className="flex flex-col min-h-screen">
+          {/* Hero Section */}
+          <section className="py-8 lg:py-24 bg-background">
+            <div className="container mx-auto px-4">
+              <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+                <div className="lg:w-1/2">
+                  <h1 className="text-4xl lg:text-5xl font-bold text-primary mb-4">Discover Kayak Rentals in Sweden</h1>
+                  <p className="text-xl text-muted-foreground mb-4">
+                    Explore Sweden's breathtaking waterways and find the perfect kayak rental spots for your adventure.
+                  </p>
+                  <Link href="/explore">
+                    <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                      Explore Rental Locations
+                    </Button>
+                  </Link>
+                </div>
+                <div className="w-full lg:w-1/2 h-[400px] lg:h-[600px] relative rounded-lg overflow-hidden">
+                  <Image
+                      src="/placeholder-image.png"
+                      alt="Scenic Swedish lake with kayaks"
+                      style={{objectFit: "cover"}}
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      fill
+                      priority
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          {/*Separator Line*/}
+          <hr className="my-8 border-t-2 border-primary-400"/>
+
+          {/* About Us / Why Choose Us Section */}
+          <section className="py-16">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold text-center mb-8 text-primary">Why Use KayakInSweden</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <Card className="shadow-lg">
+                  <CardContent className="p-6 flex flex-col items-center text-center">
+                    <MapPin className="w-12 h-12 text-primary mb-4"/>
+                    <h3 className="text-xl font-semibold mb-2">Comprehensive Listings</h3>
+                    <p>Find the best kayak rental locations across Sweden, all in one place</p>
+                  </CardContent>
+                </Card>
+                <Card className="shadow-lg">
+                  <CardContent className="p-6 flex flex-col items-center text-center">
+                    <Compass className="w-12 h-12 text-primary mb-4"/>
+                    <h3 className="text-xl font-semibold mb-2">Local Insights</h3>
+                    <p>Get valuable information about each location from our community of kayakers</p>
+                  </CardContent>
+                </Card>
+                <Card className="shadow-lg">
+                  <CardContent className="p-6 flex flex-col items-center text-center">
+                    <Map className="w-12 h-12 text-primary mb-4"/>
+                    <h3 className="text-xl font-semibold mb-2">Interactive Map</h3>
+                    <p>Easily explore and find kayak rentals with our user-friendly map interface</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </section>
+
+          {/*Separator Line*/}
+          <hr className="my-8 border-t-2 border-primary-400"/>
+
+          {/* Featured Kayaking Destinations Section */}
+          <section className="py-16 bg">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold text-center mb-8 text-primary">Featured Kayaking Destinations</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {["Stockholm Archipelago", "Göta Canal", "Bohuslän Coast"].map((destination, index) => (
+                    <Card key={index} className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                      <div className="relative h-48 md:h-64">
+                        <Image
+                            src="/placeholder-image.png"
+                            alt={destination}
+                            style={{objectFit: "cover"}}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            fill
+                            className="rounded-t-lg"
+                        />
+                      </div>
+                      <CardContent className="p-4 flex flex-col flex-grow">
+                        <h3 className="text-xl font-semibold mb-2">{destination}</h3>
+                        <p className="mb-4 flex-grow">
+                          Explore the beautiful {destination} with our recommended kayak rentals.
+                        </p>
+                        <Link href={`/explore?destination=${encodeURIComponent(destination)}`}>
+                          <Button variant="outline" className="w-full">
+                            Find Rentals
+                          </Button>
+                        </Link>
+                      </CardContent>
+                    </Card>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/*Separator Line*/}
+          <hr className="my-8 border-t-2 border-primary-400"/>
+
+          {/* Latest Blog Post Section */}
+          <section className="py-16">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold text-center mb-12 text-primary">
+                Latest from Our Blog
+              </h2>
+              <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="flex flex-col md:flex-row">
+                  <div className="relative h-48 md:h-auto md:w-2/5 lg:w-1/3">
+                    <Image
+                        src="/placeholder-image.png"
+                        alt="Latest blog post"
+                        style={{objectFit: "cover"}}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 33vw"
+                        fill
+                        className="rounded-t-lg md:rounded-l-lg md:rounded-tr-none"
+                    />
+                  </div>
+                  <CardContent className="p-6 md:w-3/5 lg:w-2/3">
+                    <h3 className="text-2xl font-semibold mb-2">10 Must-Visit Kayaking Spots in Sweden</h3>
+                    <p className="mb-4">
+                      Discover the most breathtaking kayaking locations that Sweden has to offer, from serene lakes to
+                      challenging coastal waters.
+                    </p>
+                    <Link href="/blog/10-must-visit-kayaking-spots">
+                      <Button variant="outline">Read More</Button>
+                    </Link>
+                  </CardContent>
+                </div>
+              </Card>
+            </div>
+          </section>
+
+          {/* Call-to-Action Section */}
+          <section className="py-16 bg-muted text-primary">
+            <div className="container mx-auto px-4 text-center">
+              <h2 className="text-3xl font-bold mb-4">Ready to Find Your Perfect Kayak Rental?</h2>
+              <p className="text-xl mb-8">Explore our interactive map and discover the best kayaking spots in
+                Sweden!</p>
+              <Link href="/explore">
+                <Button size="lg" variant="secondary"
+                        className="hover:bg-white hover:text-primary transition-colors duration-300">
+                  Explore Rental Locations
+                </Button>
+              </Link>
+            </div>
+          </section>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+      </>
+  )
 }
+
