@@ -5,7 +5,7 @@ import {Card, CardContent} from "@/components/ui/card";
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen py-12 bg-white">
+        <div className="min-h-screen py-12 bg-gradient-to-b from-white to-primary-200 ">
             <main className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 className="text-5xl font-bold mb-12 text-center">About KayakInSweden</h1>
 
@@ -13,8 +13,10 @@ export default function AboutPage() {
                     <div className="lg:w-1/2">
                         <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
                         <p className="text-xl text-gray-600">
-                            KayakInSweden aims to provide a comprehensive guide for kayaking enthusiasts looking to explore the
-                            beautiful waterways of Sweden. Our mission is to make kayaking in Sweden accessible, safe, and enjoyable
+                            KayakInSweden aims to provide a comprehensive guide for kayaking enthusiasts looking to
+                            explore the
+                            beautiful waterways of Sweden. Our mission is to make kayaking in Sweden accessible, safe,
+                            and enjoyable
                             for everyone, from beginners to experienced paddlers.
                         </p>
                     </div>
@@ -22,7 +24,7 @@ export default function AboutPage() {
                         <Image
                             src="/placeholder-image.png"
                             alt="Kayaking in Sweden"
-                            style={{ objectFit: "cover" }}
+                            style={{objectFit: "cover"}}
                             sizes="(max-width: 1024px) 100vw, 50vw"
                             fill
                             priority
@@ -30,14 +32,32 @@ export default function AboutPage() {
                     </div>
                 </section>
 
+                <div className="container mx-auto px-4">
+                    <div
+                        className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
+                        role="separator"
+                        aria-hidden="true"
+                    />
+                </div>
+
                 <section className="mb-16">
                     <h2 className="text-3xl font-semibold mb-4">Why Kayak in Sweden?</h2>
                     <p className="text-xl text-gray-600">
-                        Sweden offers a unique kayaking experience with its vast network of lakes, rivers, and coastal areas. From
-                        the tranquil waters of Lake Vänern to the archipelagos of Stockholm and Gothenburg, there's a diverse range
+                        Sweden offers a unique kayaking experience with its vast network of lakes, rivers, and coastal
+                        areas. From
+                        the tranquil waters of Lake Vänern to the archipelagos of Stockholm and Gothenburg, there's a
+                        diverse range
                         of kayaking opportunities for all skill levels.
                     </p>
                 </section>
+
+                <div className="container mx-auto px-4">
+                    <div
+                        className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
+                        role="separator"
+                        aria-hidden="true"
+                    />
+                </div>
 
                 <section className="mb-16">
                     <h2 className="text-3xl font-semibold mb-8">Our Services</h2>
@@ -103,6 +123,14 @@ export default function AboutPage() {
                     {/*</div>*/}
                 </section>
 
+                <div className="container mx-auto px-4">
+                    <div
+                        className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
+                        role="separator"
+                        aria-hidden="true"
+                    />
+                </div>
+
                 <section className="mb-16 flex flex-col lg:flex-row-reverse items-center gap-8">
                     <div className="lg:w-1/2">
                         <h2 className="text-3xl font-semibold mb-4">Our Team</h2>
@@ -123,20 +151,40 @@ export default function AboutPage() {
                     </div>
                 </section>
 
+                <div className="container mx-auto px-4">
+                    <div
+                        className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
+                        role="separator"
+                        aria-hidden="true"
+                    />
+                </div>
+
                 <section className="mb-16">
                     <h2 className="text-3xl font-semibold mb-4">Sustainability Commitment</h2>
                     <p className="text-xl text-gray-600">
                         At KayakInSweden, we're committed to promoting sustainable and responsible kayaking practices.
                         We encourage
-                        our users to respect the environment, follow Leave No Trace principles, and contribute to the preservation
+                        our users to respect the environment, follow Leave No Trace principles, and contribute to the
+                        preservation
                         of Sweden's beautiful waterways.
                     </p>
                 </section>
 
+
+                <div className="container mx-auto px-4">
+                    <div
+                        className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
+                        role="separator"
+                        aria-hidden="true"
+                    />
+                </div>
+
+
                 <section className="mb-16">
                     <h2 className="text-3xl font-semibold mb-4">Get Involved</h2>
                     <p className="text-xl text-gray-600">
-                        We welcome contributions from the kayaking community! Whether you have a favorite spot to share, tips for
+                        We welcome contributions from the kayaking community! Whether you have a favorite spot to share,
+                        tips for
                         fellow kayakers, or want to organize group trips, we'd love to hear from you.
                     </p>
                     <Button className="mt-6">Contact Us</Button>

@@ -78,9 +78,11 @@ body {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
   }
+
   .duration-300 {
     transition-duration: 300ms;
   }
+
   .ease-in-out {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -89,10 +91,11 @@ body {
 @layer base {
   * {
     @apply border-border;
- }
+  }
+
   body {
     @apply bg-background text-foreground;
- }
+  }
 }
 
 
@@ -125,7 +128,7 @@ body {
 
 @keyframes reveal {
   from {
-    transform: translateY(100px);
+    transform: translateY(50%);
   }
   to {
     transform: translateY(0);
