@@ -21,6 +21,7 @@ export interface Filters {
     selfGuidedTours?: boolean
     guidedTours?: boolean
     publicTransport?: boolean
+    favorites?: boolean
 }
 
 type RentalLocation = Database["public"]["Tables"]["rental_locations"]["Row"]
@@ -58,7 +59,7 @@ export async function fetchRentalLocationsGeoJson() {
                     is_by_coast: loc.is_by_coast,
                     offers_equipment_rental: loc.offers_equipment_rental,
                     offers_self_guided_tours: loc.offers_self_guided_tours,
-                    offers_guided_tours: loc.offers_guided_tours
+                    offers_guided_tours: loc.offers_guided_tours,
                 }
             }))
         };

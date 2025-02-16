@@ -9,6 +9,7 @@ const filterLabels = {
     selfGuidedTours: "Self Guided Tours",
     guidedTours: "Guided Tours",
     publicTransport: "Public Transport",
+    favorites: "Favorites",
 }
 
 export default function FiltersSection({ filters, setFilters }) {
