@@ -45,7 +45,7 @@ export function Header() {
         <header className={`sticky top-0 z-50 bg-primary text-primary-foreground transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}>
             <div className="container mx-auto px-4 py-4">
                 <div className="flex justify-between items-center">
-                    <Link href="/public" className="flex items-center space-x-2">
+                    <Link href="/" className="flex items-center space-x-2">
                         <Kayak className="h-8 w-8"/>
                         <span className="text-xl font-bold">KayakInSweden</span>
                     </Link>
