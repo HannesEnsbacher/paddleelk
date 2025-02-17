@@ -44,14 +44,14 @@ export default function Sidebar({
                             <div
                                 key={location.id}
                                 ref={(el) => (locationRefs.current[location.id] = el)}
-                                className={`cursor-pointer transition-colors hover:bg-white ${
+                                className={`cursor-pointer ${
                                     selectedLocation?.id === location.id ? "ring-2 ring-emerald-500 rounded-lg" : ""
                                 }`}
                                 onClick={() => onLocationSelect(location)}
                             >
                                 <LocationCard
                                     location={location}
-                                    isFavorite={favorites.includes(location.id)}
+                                    isFavorite={favorites.includes(location)}
                                     toggleFavorite={toggleFavorite}
                                 />
                             </div>

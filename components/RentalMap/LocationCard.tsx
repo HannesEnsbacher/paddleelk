@@ -1,6 +1,4 @@
 import {
-    Users,
-    Clock,
     ArrowRight,
     Heart,
     SailboatIcon as Boat,
@@ -27,7 +25,7 @@ const badgeInfo = {
 
 export default function LocationCard({ location, isFavorite, toggleFavorite }) {
     return (
-        <Card className="w-full max-w-md">
+        <Card className="w-full max-w-md hover:bg-white shadow-lg hover:shadow-xl transition-all duration-200">
             <CardContent className="p-4">
                 <div className="flex items-start justify-between">
                     <div>
@@ -40,7 +38,7 @@ export default function LocationCard({ location, isFavorite, toggleFavorite }) {
                         className={`shrink-0 ${isFavorite ? "text-red-500" : "text-gray-500"}`}
                         onClick={(e) => {
                             e.stopPropagation()
-                            toggleFavorite(location.id)
+                            toggleFavorite(location)
                         }}
                     >
                         <Heart className={`h-5 w-5 ${isFavorite ? "fill-current" : ""}`} />
@@ -62,7 +60,7 @@ export default function LocationCard({ location, isFavorite, toggleFavorite }) {
                     {Object.entries(badgeInfo).map(([key, info]) => {
                         if (location.properties[info.dataKey]) {
                             return (
-                                <Badge key={key} variant="secondary" className="bg-accent flex items-center gap-1">
+                                <Badge key={key} variant="secondary" className="bg-primary-500 flex items-center gap-1">
                                     {info.icon}
                                     {info.label}
                                 </Badge>

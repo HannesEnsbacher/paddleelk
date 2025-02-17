@@ -5,13 +5,13 @@ import {type Filters} from "@/lib/supabase"
 import {mapboxgl} from "@/lib/mapbox"
 import Sidebar from "./Sidebar"
 import MobileLocationCard from "./MobileLocationCard"
-import "./RentalMap.css"
 import {FeatureCollection} from "geojson";
 
 
 export default function RentalMap({locations: locationsGeoJson}: FeatureCollection) {
     const [selectedLocation, setSelectedLocation] = useState(null)
-    const [favorites, setFavorites] = useState<number[]>([])
+    const [filteredLocations, setFilteredLocations] = useState([])
+    const [favorites, setFavorites] = useState([])
     const [filters, setFilters] = useState<Filters>({
         kayaks: false,
         canoes: false,
@@ -30,6 +30,7 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
 
 
     useEffect(() => {
+        setFilteredLocations(locationsGeoJson.features)
         if (mapContainerRef.current && !mapRef.current) {
             mapRef.current = new mapboxgl.Map({
                 container: mapContainerRef.current,
@@ -75,16 +76,28 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
                         'icon-image': 'marker-gray',
                         'icon-anchor': 'bottom',
                         'icon-allow-overlap': true,
-                        // 'text-allow-overlap': true,
-                        // 'text-field': ['get', 'name'],
-                        // 'text-font': [
-                        //     'Open Sans Semibold',
-                        //     'Arial Unicode MS Bold'
-                        // ],
-                        // 'text-offset': [0, 0.25],
-                        // 'text-anchor': 'top',
                     }
                 });
+
+                mapRef.current.addSource('favorite-locations', {
+                    type: 'geojson',
+                    data: {
+                        type: 'FeatureCollection',
+                        features: [],
+                    }
+                })
+
+                mapRef.current.addLayer({
+                    'id': 'favorite-locations-marker',
+                    'type': 'symbol',
+                    'source': 'favorite-locations',
+                    'layout': {
+                        'icon-image': 'marker-red',
+                        'icon-anchor': 'bottom',
+                        'icon-allow-overlap': true,
+                    }
+                });
+
 
                 mapRef.current.addSource('selected-feature', {
                     type: 'geojson',
@@ -152,12 +165,24 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
             (!filters.selfGuidedTours || location.properties.offers_self_guided_tours) &&
             (!filters.guidedTours || location.properties.offers_guided_tours) &&
             (!filters.publicTransport || location.properties.is_reachable_by_public_transport) &&
-            (!filters.favorites || favorites.includes(location.id)))
+            (!filters.favorites || favorites.includes(location)))
+        setFilteredLocations(filteredLocations)
+    }, [filters]);
+
+    useEffect(() => {
         if (mapRef.current.loaded()) {
             mapRef.current.setFilter('rental-locations-marker', ['in', 'id', ...filteredLocations.map((location) => location.id)])
+            mapRef.current.setFilter('favorite-locations-marker', ['in', 'id', ...filteredLocations.map((location) => location.id)])
             mapRef.current.setFilter('selected-feature-marker', ['in', 'id', ...filteredLocations.map((location) => location.id)])
+            if (selectedLocation && !filteredLocations.includes(selectedLocation)) {
+                setSelectedLocation(null)
+                mapRef.current.getSource('selected-feature').setData({
+                    type: 'FeatureCollection',
+                    features: []
+                })
+            }
         }
-    }, [filters]);
+    }, [filteredLocations]);
 
 
     useEffect(() => {
@@ -195,10 +220,34 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
         // }, [selectedLocation, filteredLocations])
     }, [selectedLocation])
 
+    useEffect(() => {
+        if (mapRef.current.loaded()) {
+            if (favorites.length === 0) {
+                mapRef.current.getSource('favorite-locations').setData({
+                    type: 'FeatureCollection',
+                    features: [],
+                })
+                return;
+            }
+            mapRef.current.getSource('favorite-locations').setData({
+                type: 'FeatureCollection',
+                features: favorites.map((loc) => ({
+                            type: 'Feature',
+                            geometry: loc.geometry,
+                            properties: loc.properties,
+                            id: loc.id,
+                        }
+                    )
+                )
+            })
+        }
+    }, [favorites]);
+
 
     const handleLocationSelectInMap = (location) => {
-        const selectedLocation = locationsGeoJson.features.find((loc) => loc.id === location.id)
-        handleLocationSelect(selectedLocation);
+        // const selectedLocation = locationsGeoJson.features.find((loc) => loc.id === location.id)
+        // handleLocationSelect(selectedLocation);
+        handleLocationSelect(location);
     }
 
     const handleLocationSelectInSidebar = (location) => {
@@ -212,7 +261,6 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
     }
 
     const handleLocationSelect = (location) => {
-        console.log(mapRef.current.getSource('selected-feature'));
         mapRef.current.getSource('selected-feature').setData({
             type: 'FeatureCollection',
             features: [
@@ -228,18 +276,18 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
     }
 
 
-    const toggleFavorite = (locationId: number) => {
+    const toggleFavorite = (location) => {
         setFavorites((prevFavorites) =>
-            prevFavorites.includes(locationId)
-                ? prevFavorites.filter((id) => id !== locationId)
-                : [...prevFavorites, locationId],
+            prevFavorites.includes(location)
+                ? prevFavorites.filter((loc) => loc !== location)
+                : [...prevFavorites, location],
         )
     }
 
     return (
         <div className="h-[calc(100vh-4rem)] flex bg-emerald-50/50 relative">
             <Sidebar
-                locations={locationsGeoJson.features}
+                locations={filteredLocations}
                 filters={filters}
                 setFilters={setFilters}
                 selectedLocation={selectedLocation}
