@@ -72,28 +72,32 @@ export default function Home() {
                                 icon: MapPin,
                                 title: "Comprehensive Listings",
                                 description: "Find the best kayak rental locations across Sweden, all in one place",
+                                link: "/explore",
                             },
                             {
                                 icon: Compass,
                                 title: "Local Insights",
                                 description: "Get valuable information about each location from our community of kayakers",
+                                link: "/blog",
                             },
                             {
                                 icon: Map,
                                 title: "Interactive Map",
                                 description: "Easily explore and find kayak rentals with our user-friendly map interface",
+                                link: "/explore",
                             },
                         ].map((item, index) => (
-                            <Card
-                                key={index}
-                                className="shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
-                            >
-                                <CardContent className="p-6 flex flex-col items-center text-center">
-                                    <item.icon className="w-12 h-12 text-primary mb-4"/>
-                                    <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                                    <p>{item.description}</p>
-                                </CardContent>
-                            </Card>
+                            <Link key={index} href={item.link}>
+                                <Card
+                                    className="shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+                                >
+                                    <CardContent className="p-6 flex flex-col items-center text-center">
+                                        <item.icon className="w-12 h-12 text-primary mb-4"/>
+                                        <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                                        <p>{item.description}</p>
+                                    </CardContent>
+                                </Card>
+                            </Link>
                         ))}
                     </div>
                 </div>
