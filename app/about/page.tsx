@@ -91,36 +91,6 @@ export default function AboutPage() {
                             </CardContent>
                         </Card>
                     </div>
-                    {/*<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">*/}
-                    {/*    {[*/}
-                    {/*        {*/}
-                    {/*            icon: MapPin,*/}
-                    {/*            title: "Location Guides",*/}
-                    {/*            description: "Comprehensive guides to kayaking locations across Sweden",*/}
-                    {/*        },*/}
-                    {/*        {*/}
-                    {/*            icon: Info,*/}
-                    {/*            title: "Rental Information",*/}
-                    {/*            description: "Information on kayak rentals and tours"*/}
-                    {/*        },*/}
-                    {/*        {*/}
-                    {/*            icon: LifeBuoy,*/}
-                    {/*            title: "Safety Tips",*/}
-                    {/*            description: "Safety tips and best practices for kayaking in Swedish waters",*/}
-                    {/*        },*/}
-                    {/*        {*/}
-                    {/*            icon: Calendar,*/}
-                    {/*            title: "Seasonal Recommendations",*/}
-                    {/*            description: "Seasonal recommendations for the best kayaking experiences",*/}
-                    {/*        },*/}
-                    {/*    ].map((service, index) => (*/}
-                    {/*        <div key={index} className="bg-gray-100 p-6 rounded-lg shadow-sm">*/}
-                    {/*            <service.icon className="w-10 h-10 mb-4 text-blue-600"/>*/}
-                    {/*            <h3 className="text-xl font-semibold mb-2">{service.title}</h3>*/}
-                    {/*            <p className="text-gray-600">{service.description}</p>*/}
-                    {/*        </div>*/}
-                    {/*    ))}*/}
-                    {/*</div>*/}
                 </section>
 
                 <div className="container mx-auto px-4">
@@ -135,8 +105,11 @@ export default function AboutPage() {
                     <div className="lg:w-1/2">
                         <h2 className="text-3xl font-semibold mb-4">Our Team</h2>
                         <p className="text-xl text-gray-600">
-                            [Add information about the team behind KayakInSweden, their experience, and passion for
-                            kayaking]
+                            Well, it's just me for now. I am still a student and I just enjoy outdoor activities in
+                            general. I am definitely not the most experienced so if you have any suggestions, go ahead and contact me!<br/>
+                            I was planning trips with my friends and I noticed that it is hard to find rental places
+                            because they are small businesses.
+                            That is why I decided to create a better way to look for them.
                         </p>
                     </div>
                     <div className="w-full lg:w-1/2 h-[300px] lg:h-[400px] relative rounded-lg overflow-hidden">
@@ -183,9 +156,8 @@ export default function AboutPage() {
                 <section className="mb-16">
                     <h2 className="text-3xl font-semibold mb-4">Get Involved</h2>
                     <p className="text-xl text-gray-600">
-                        We welcome contributions from the kayaking community! Whether you have a favorite spot to share,
-                        tips for
-                        fellow kayakers, or want to organize group trips, we'd love to hear from you.
+                        We welcome contributions from the kayaking community! Whether you have a favorite spot to share or
+                        tips for fellow kayakers, we'd love to hear from you.
                     </p>
                     <Button className="mt-6">Contact Us</Button>
                 </section>
