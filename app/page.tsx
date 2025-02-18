@@ -152,53 +152,52 @@ export default function Home() {
                 </div>
             </section>
 
-            <div className="container mx-auto px-4">
-                <div
-                    className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
-                    role="separator"
-                    aria-hidden="true"
-                />
-            </div>
+            {/*<div className="container mx-auto px-4">*/}
+            {/*    <hr*/}
+            {/*        className="h-px border-0 bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"*/}
+            {/*        aria-hidden="true"*/}
+            {/*    />*/}
+            {/*</div>*/}
 
             {/* Latest Blog Post Section */}
-            <section className="py-16 bg-wave-pattern">
-                <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-12 text-primary">Latest from Our Blog</h2>
-                    <Card
-                        className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                        <div className="flex flex-col md:flex-row">
-                            <div className="relative h-48 md:h-auto md:w-2/5 lg:w-1/3">
-                                <Image
-                                    src="/placeholder-image.png"
-                                    alt="Latest blog post"
-                                    style={{objectFit: "cover"}}
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 33vw"
-                                    fill
-                                    className="rounded-t-lg md:rounded-l-lg md:rounded-tr-none"
-                                    placeholder="blur"
-                                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
-                                />
-                            </div>
-                            <CardContent className="p-6 md:w-3/5 lg:w-2/3">
-                                <h3 className="text-2xl font-semibold mb-2">10 Must-Visit Kayaking Spots in Sweden</h3>
-                                <p className="mb-4">
-                                    Discover the most breathtaking kayaking locations that Sweden has to offer, from
-                                    serene lakes to
-                                    challenging coastal waters.
-                                </p>
-                                <Link href="/blog/10-must-visit-kayaking-spots">
-                                    <Button
-                                        variant="outline"
-                                        className="hover:bg-primary hover:text-primary-foreground transition-colors duration-300"
-                                    >
-                                        Read More
-                                    </Button>
-                                </Link>
-                            </CardContent>
-                        </div>
-                    </Card>
-                </div>
-            </section>
+            {/*<section className="py-16 bg-wave-pattern">*/}
+            {/*    <div className="container mx-auto px-4">*/}
+            {/*        <h2 className="text-3xl font-bold text-center mb-12 text-primary">Latest from Our Blog</h2>*/}
+            {/*        <Card*/}
+            {/*            className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">*/}
+            {/*            <div className="flex flex-col md:flex-row">*/}
+            {/*                <div className="relative h-48 md:h-auto md:w-2/5 lg:w-1/3">*/}
+            {/*                    <Image*/}
+            {/*                        src="/placeholder-image.png"*/}
+            {/*                        alt="Latest blog post"*/}
+            {/*                        style={{objectFit: "cover"}}*/}
+            {/*                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 33vw"*/}
+            {/*                        fill*/}
+            {/*                        className="rounded-t-lg md:rounded-l-lg md:rounded-tr-none"*/}
+            {/*                        placeholder="blur"*/}
+            {/*                        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="*/}
+            {/*                    />*/}
+            {/*                </div>*/}
+            {/*                <CardContent className="p-6 md:w-3/5 lg:w-2/3">*/}
+            {/*                    <h3 className="text-2xl font-semibold mb-2">10 Must-Visit Kayaking Spots in Sweden</h3>*/}
+            {/*                    <p className="mb-4">*/}
+            {/*                        Discover the most breathtaking kayaking locations that Sweden has to offer, from*/}
+            {/*                        serene lakes to*/}
+            {/*                        challenging coastal waters.*/}
+            {/*                    </p>*/}
+            {/*                    <Link href="/blog/10-must-visit-kayaking-spots">*/}
+            {/*                        <Button*/}
+            {/*                            variant="outline"*/}
+            {/*                            className="hover:bg-primary hover:text-primary-foreground transition-colors duration-300"*/}
+            {/*                        >*/}
+            {/*                            Read More*/}
+            {/*                        </Button>*/}
+            {/*                    </Link>*/}
+            {/*                </CardContent>*/}
+            {/*            </div>*/}
+            {/*        </Card>*/}
+            {/*    </div>*/}
+            {/*</section>*/}
 
             {/* Call-to-Action Section */}
             <section className="py-16 bg-muted text-primary">

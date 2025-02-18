@@ -8,7 +8,7 @@ import {SailboatIcon as Kayak, Menu, X} from "lucide-react"
 const navItems = [
     {name: "Home", href: "/"},
     {name: "Explore", href: "/explore"},
-    {name: "Blog", href: "/blog"},
+    // {name: "Blog", href: "/blog"},
     {name: "About", href: "/about"},
     {name: "For Rental Owners", href: "/for-rental-owners"},
 ]
