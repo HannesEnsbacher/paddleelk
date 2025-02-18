@@ -1,12 +1,11 @@
 import {
-    ArrowRight,
     Heart,
     SailboatIcon as Boat,
     Tent,
     Briefcase,
     Map,
     CompassIcon,
-    Bus,
+    Bus, ExternalLink,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -71,10 +70,13 @@ export default function LocationCard({ location, isFavorite, toggleFavorite }) {
                 </div>
 
                 <div className="mt-4">
-                    <Link href={`/rental/${location.id}`}>
+                    <Link href={`/rentals/${location.id}`}
+                          target="_blank"
+                          rel="noopener noreferrer">
                         <Button variant="outline" className="w-full">
                             View Details
-                            <ArrowRight className="ml-2 h-4 w-4" />
+                            <ExternalLink className="w-4 h-4"/>
+                            {/*<ArrowRight className="ml-2 h-4 w-4" />*/}
                         </Button>
                     </Link>
                 </div>
