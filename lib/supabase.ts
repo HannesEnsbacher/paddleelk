@@ -42,7 +42,7 @@ export async function fetchRentalLocationsGeoJson() {
     if (data) {
         return {
             type: "FeatureCollection",
-            features: data.map((loc :RentalLocation) => ({
+            features: data.map((loc: RentalLocation) => ({
                 type: "Feature",
                 id: loc.id,
                 geometry: {
@@ -74,3 +74,10 @@ export async function fetchRentalLocationsGeoJson() {
 
 }
 
+export async function getRentalLocationById(id: string): Promise<RentalLocation | null> {
+
+    const {data, error} = await supabase.from("rental_locations").select("*").eq("id", id).single()
+
+
+    return data
+}
