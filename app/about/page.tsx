@@ -1,11 +1,12 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import {MapPin, LifeBuoy, Calendar, Info, Compass, Map} from "lucide-react"
+import {MapPin, LifeBuoy, Calendar, Info} from "lucide-react"
 import {Card, CardContent} from "@/components/ui/card";
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen py-12 bg-gradient-to-b from-white to-primary-200 ">
+        // <div className="min-h-screen py-12 bg-gradient-to-b from-white to-primary-200 ">
+        <div className="min-h-screen py-12">
             <main className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 className="text-5xl font-bold mb-12 text-center">About KayakInSweden</h1>
 
@@ -33,9 +34,8 @@ export default function AboutPage() {
                 </section>
 
                 <div className="container mx-auto px-4">
-                    <div
+                    <hr
                         className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
-                        role="separator"
                         aria-hidden="true"
                     />
                 </div>
@@ -52,9 +52,8 @@ export default function AboutPage() {
                 </section>
 
                 <div className="container mx-auto px-4">
-                    <div
+                    <hr
                         className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
-                        role="separator"
                         aria-hidden="true"
                     />
                 </div>
@@ -94,9 +93,8 @@ export default function AboutPage() {
                 </section>
 
                 <div className="container mx-auto px-4">
-                    <div
+                    <hr
                         className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
-                        role="separator"
                         aria-hidden="true"
                     />
                 </div>
@@ -125,9 +123,8 @@ export default function AboutPage() {
                 </section>
 
                 <div className="container mx-auto px-4">
-                    <div
+                    <hr
                         className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
-                        role="separator"
                         aria-hidden="true"
                     />
                 </div>
@@ -145,9 +142,8 @@ export default function AboutPage() {
 
 
                 <div className="container mx-auto px-4">
-                    <div
+                    <hr
                         className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
-                        role="separator"
                         aria-hidden="true"
                     />
                 </div>
