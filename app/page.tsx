@@ -55,9 +55,8 @@ export default function Home() {
             </section>
 
             <div className="container mx-auto px-4">
-                <div
-                    className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
-                    role="separator"
+                <hr
+                    className="h-px border-0  bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
                     aria-hidden="true"
                 />
             </div>
@@ -104,9 +103,8 @@ export default function Home() {
             </section>
 
             <div className="container mx-auto px-4">
-                <div
-                    className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
-                    role="separator"
+                <hr
+                    className="h-px border-0  bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
                     aria-hidden="true"
                 />
             </div>

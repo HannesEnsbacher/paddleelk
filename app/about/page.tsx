@@ -35,7 +35,7 @@ export default function AboutPage() {
 
                 <div className="container mx-auto px-4">
                     <hr
-                        className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
+                        className="h-px border-0 bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
                         aria-hidden="true"
                     />
                 </div>
@@ -53,7 +53,7 @@ export default function AboutPage() {
 
                 <div className="container mx-auto px-4">
                     <hr
-                        className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
+                        className="h-px border-0 bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
                         aria-hidden="true"
                     />
                 </div>
@@ -94,7 +94,7 @@ export default function AboutPage() {
 
                 <div className="container mx-auto px-4">
                     <hr
-                        className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
+                        className="h-px border-0 bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
                         aria-hidden="true"
                     />
                 </div>
@@ -124,7 +124,7 @@ export default function AboutPage() {
 
                 <div className="container mx-auto px-4">
                     <hr
-                        className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
+                        className="h-px border-0 bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
                         aria-hidden="true"
                     />
                 </div>
@@ -143,7 +143,7 @@ export default function AboutPage() {
 
                 <div className="container mx-auto px-4">
                     <hr
-                        className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
+                        className="h-px border-0 bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
                         aria-hidden="true"
                     />
                 </div>
