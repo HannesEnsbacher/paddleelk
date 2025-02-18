@@ -139,12 +139,6 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
                 }
 
             });
-
-            mapRef.current.on('click', (e) => {
-
-                const features = mapRef.current.queryRenderedFeatures({layers: ['rental-locations-marker']});
-                console.log(features.map(f => ({id: f.id, iconState: f.properties.iconState})));
-            });
         }
 
 
@@ -245,8 +239,6 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
 
 
     const handleLocationSelectInMap = (location) => {
-        // const selectedLocation = locationsGeoJson.features.find((loc) => loc.id === location.id)
-        // handleLocationSelect(selectedLocation);
         handleLocationSelect(location);
     }
 
@@ -285,7 +277,7 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
     }
 
     return (
-        <div className="h-[calc(100vh-4rem)] flex bg-emerald-50/50 relative">
+        <div className="h-[calc(100vh-4rem)] flex relative">
             <Sidebar
                 locations={filteredLocations}
                 filters={filters}
