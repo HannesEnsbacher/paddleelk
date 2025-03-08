@@ -54,7 +54,7 @@ export default async function RentalLocationDetailsPage({params}) {
                                 <CardHeader>
                                     <CardTitle>Rental Information</CardTitle>
                                 </CardHeader>
-                                <CardContent className="grid sm:grid-cols-2 gap-4">
+                                <CardContent className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
                                     <div className="flex items-center">
                                         <Clock className="w-5 h-5 mr-2 text-muted-foreground"/>
                                         <span>
@@ -82,11 +82,9 @@ export default async function RentalLocationDetailsPage({params}) {
                                             <TooltipContent>
                                                 <p>
                                                     This price is an approximation for a 7-day rental. Actual prices
-                                                    may vary depending on the
-                                                    specific kayak, route, or tour chosen. <br/>Always check the
-                                                    rental
-                                                    provider's website for current
-                                                    pricing.
+                                                    may vary depending on the specific kayak, route, or tour chosen. <br/>
+                                                    Different rental providers may include different things in their prices. <br/>
+                                                    Always check the rental provider's website for current pricing and included services.
                                                 </p>
                                             </TooltipContent>
                                         </Tooltip>
@@ -100,7 +98,7 @@ export default async function RentalLocationDetailsPage({params}) {
                                         Available Services
                                     </CardTitle>
                                 </CardHeader>
-                                <CardContent className="grid sm:grid-cols-2 gap-y-2">
+                                <CardContent className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
                                     {[
                                         {icon: Kayak, label: "Kayaks", value: rentalLocation.offers_kayaks},
                                         {icon: Canoe, label: "Canoes", value: rentalLocation.offers_canoes},
@@ -141,7 +139,7 @@ export default async function RentalLocationDetailsPage({params}) {
                                         Location Details
                                     </CardTitle>
                                 </CardHeader>
-                                <CardContent className="grid sm:grid-cols-2 gap-y-2">
+                                <CardContent className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
                                     {[
                                         {
                                             icon: Navigation,
@@ -151,7 +149,7 @@ export default async function RentalLocationDetailsPage({params}) {
                                         {
                                             icon: Bus,
                                             label: rentalLocation.is_reachable_by_public_transport ? "Public transport available" : "No public transport",
-                                            tooltip: "Public transport may be available to reach this location. This depends on your specific starting location."
+                                            tooltip: "Public transport may be available to reach this location. This depends on your specific starting location. If a rental offers pickup at a nearby station, we would consider this as reachable."
                                         },
                                         {
                                             icon: Waves,
@@ -182,11 +180,21 @@ export default async function RentalLocationDetailsPage({params}) {
                                     )}
                                 </CardContent>
                             </Card>
-
+                            <Alert>
+                                <AlertTriangle className="h-4 w-4"/>
+                                <AlertDescription>
+                                    <strong>Please note:</strong> <br/>
+                                    Bookings are made directly through the rental provider. <br/>
+                                    All rental providers are different and the way the information is displayed on this site may not represent each provider's current offerings in detail.
+                                    The information provided is for reference only and may not be up to
+                                    date. Always refer to the rental provider's website for the most accurate and current
+                                    information.
+                                </AlertDescription>
+                            </Alert>
                         </div>
 
                         <div className="lg:w-1/3 space-y-6">
-                            <div className="lg:sticky lg:top-6 space-y-6">
+                            <div className="lg:sticky lg:top-20 space-y-6">
                                 <Card className="bg-primary text-primary-foreground">
                                     <CardContent className="pt-6">
                                         <h3 className="text-xl font-semibold mb-2">Ready to book?</h3>
@@ -224,20 +232,11 @@ export default async function RentalLocationDetailsPage({params}) {
                                         </Button>
                                     </CardContent>
                                 </Card>
-
-                                <Alert>
-                                    <AlertTriangle className="h-4 w-4"/>
-                                    <AlertDescription>
-                                        Please note: Bookings are made directly through the rental provider. The
-                                        information provided
-                                        here is for reference only and may not be up to date. Always refer to the
-                                        rental
-                                        provider's website for
-                                        the most accurate and current information.
-                                    </AlertDescription>
-                                </Alert>
                             </div>
                         </div>
+                    </div>
+                    <div className="mt-8">
+
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ export default function LoadingKayakRentalDetails() {
                         <CardHeader>
                             <Skeleton className="h-6 w-1/4" />
                         </CardHeader>
-                        <CardContent className="grid sm:grid-cols-2 gap-4">
+                        <CardContent className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
                             <Skeleton className="h-6 w-full" />
                             <Skeleton className="h-6 w-full" />
                         </CardContent>
@@ -32,7 +32,7 @@ export default function LoadingKayakRentalDetails() {
                         <CardHeader>
                             <Skeleton className="h-6 w-1/3" />
                         </CardHeader>
-                        <CardContent className="grid sm:grid-cols-2 gap-y-2">
+                        <CardContent className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
                             {[...Array(6)].map((_, i) => (
                                 <Skeleton key={i} className="h-6 w-full" />
                             ))}
@@ -43,7 +43,7 @@ export default function LoadingKayakRentalDetails() {
                         <CardHeader>
                             <Skeleton className="h-6 w-1/3" />
                         </CardHeader>
-                        <CardContent className="grid sm:grid-cols-2 gap-y-2">
+                        <CardContent className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
                             {[...Array(3)].map((_, i) => (
                                 <Skeleton key={i} className="h-6 w-full" />
                             ))}
