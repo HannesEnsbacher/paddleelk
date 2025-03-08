@@ -6,7 +6,7 @@ import type {Database} from "@/types/supabase";
 
 type RentalLocation = Database["public"]["Tables"]["rental_locations"]["Row"]
 
-export default function DetailsMap({ location } : RentalLocation) {
+export default function DetailsMap({rentalLocation}: RentalLocation) {
     const mapContainerRef= useRef();
     const mapRef = useRef();
 
@@ -15,7 +15,7 @@ export default function DetailsMap({ location } : RentalLocation) {
             mapRef.current = new mapboxgl.Map({
                 container: mapContainerRef.current,
                 style: "mapbox://styles/mapbox/outdoors-v11",
-                center: [location.longitude, location.latitude],
+                center: [rentalLocation.longitude, rentalLocation.latitude],
                 zoom: 10,
             })
 
@@ -37,11 +37,11 @@ export default function DetailsMap({ location } : RentalLocation) {
                                 type: 'Feature',
                                 geometry: {
                                     type: 'Point',
-                                    coordinates: [location.longitude, location.latitude],
+                                    coordinates: [rentalLocation.longitude, rentalLocation.latitude],
                                 },
                                 properties: {
-                                    id: location.id,
-                                    name: location.name,
+                                    id: rentalLocation.id,
+                                    name: rentalLocation.name,
                                 },
                             },
                         ],
@@ -68,7 +68,7 @@ export default function DetailsMap({ location } : RentalLocation) {
                 mapRef.current = null
             }
         }
-    }, [location])
+    }, [rentalLocation])
 
     return (
         <div ref={mapContainerRef} className="relative w-full h-[300px] bg-gray-200 rounded-lg overflow-hidden"/>
