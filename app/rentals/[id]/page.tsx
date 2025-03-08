@@ -32,7 +32,7 @@ export default async function RentalLocationDetailsPage({params}) {
     }
 
     return (
-        <TooltipProvider>
+        <TooltipProvider delayDuration={50}>
             <div className="py-12">
                 <div className="container mx-auto px-4 py-8">
                     <div className="flex flex-col lg:flex-row gap-8">
