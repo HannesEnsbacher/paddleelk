@@ -218,7 +218,7 @@ export default async function RentalLocationDetailsPage({params}) {
 
                                 <Card>
                                     <CardContent className="pt-6 space-y-4">
-                                        <DetailsMap location={rentalLocation}/>
+                                        <DetailsMap rentalLocation={rentalLocation}/>
                                         <Button asChild variant="outline" className="w-full">
                                             <Link
                                                 href={rentalLocation.google_maps_link}
