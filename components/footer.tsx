@@ -59,7 +59,7 @@ export function Footer() {
                     </div>
                 </div>
                 <div className="mt-8 pt-8 border-t border-primary-foreground/10 text-center">
-                    <p>&copy; {new Date().getFullYear()} KayakInSweden. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} PaddleTours. All rights reserved.</p>
                 </div>
             </div>
         </footer>
