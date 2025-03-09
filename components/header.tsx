@@ -3,6 +3,7 @@
 import {useState, useEffect} from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import Image from "next/image"
 import {SailboatIcon as Kayak, Menu, X} from "lucide-react"
 
 const navItems = [
@@ -43,11 +44,12 @@ export function Header() {
 
     return (
         <header className={`sticky top-0 z-50 bg-primary text-primary-foreground transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}>
-            <div className="container mx-auto px-4 py-4">
+            <div className="max-w- mx-auto lg:px-12 px-4 py-4">
                 <div className="flex justify-between items-center">
                     <Link href="/" className="flex items-center space-x-2">
-                        <Kayak className="h-8 w-8"/>
-                        <span className="text-xl font-bold">KayakInSweden</span>
+                        {/*<Kayak className="h-8 w-8"/>*/}
+                        <Image src="/logo.svg" alt="PaddleTrips Logo" width={40} height={40} />
+                        <span className="text-xl font-bold">PaddleTrips</span>
                     </Link>
                     <nav className="hidden md:block">
                         <ul className="flex space-x-4">
