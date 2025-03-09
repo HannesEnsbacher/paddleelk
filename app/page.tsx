@@ -17,14 +17,6 @@ export default function Home() {
                             Explore Sweden's breathtaking waterways and find the perfect kayak rental spots for your
                             adventure.
                         </p>
-                        <Link href="/explore">
-                            <Button
-                                size="lg"
-                                className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors duration-300"
-                            >
-                                Explore Rental Locations
-                            </Button>
-                        </Link>
                     </div>
                     <Link href="/explore" className="group block">
                         <div className="relative animate-reveal">
