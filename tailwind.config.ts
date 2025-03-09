@@ -60,6 +60,17 @@ const config = {
 				foreground: "#E6E6E6", // Light gray
 			},
 			accent: {
+				50: "#FEF6E8",
+				100: "#FCECD1",
+				200: "#F9D9A3",
+				300: "#F6C675",
+				400: "#F3B347",
+				500: "#EFA034",
+				600: "#E79734", // Default
+				700: "#C7782B",
+				800: "#A95E23",
+				900: "#7A4119",
+				950: "#4F2A0F",
 				DEFAULT: "#E79734",
 				foreground: "#33210D", // Dark brown for contrast
 			},

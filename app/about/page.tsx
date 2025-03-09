@@ -7,12 +7,12 @@ export default function AboutPage() {
     return (
         <div className="min-h-screen py-12">
             <main className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 className="text-5xl font-bold mb-12 text-center text-primary">About KayakInSweden</h1>
+                <h1 className="text-5xl font-bold mb-12 text-center">About KayakInSweden</h1>
 
                 <section className="mb-16 flex flex-col lg:flex-row items-center gap-8">
                     <div className="lg:w-1/2">
-                        <h2 className="text-3xl font-semibold mb-4 text-primary">Our Mission</h2>
-                        <p className="text-xl text-gray-700">
+                        <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
+                        <p className="text-xl">
                             KayakInSweden aims to provide a comprehensive guide for kayaking enthusiasts looking to
                             explore the
                             beautiful waterways of Sweden. Our mission is to make kayaking in Sweden accessible, safe,
@@ -40,8 +40,8 @@ export default function AboutPage() {
                 </div>
 
                 <section className="mb-16">
-                    <h2 className="text-3xl font-semibold mb-4 text-primary">Why Kayak in Sweden?</h2>
-                    <p className="text-xl text-gray-700">
+                    <h2 className="text-3xl font-semibold mb-4">Why Kayak in Sweden?</h2>
+                    <p className="text-xl">
                         Sweden offers a unique kayaking experience with its vast network of lakes, rivers, and coastal
                         areas. From
                         the tranquil waters of Lake Vänern to the archipelagos of Stockholm and Gothenburg, there's a
@@ -58,7 +58,7 @@ export default function AboutPage() {
                 </div>
 
                 <section className="mb-16">
-                    <h2 className="text-3xl font-semibold mb-8 text-primary">Our Services</h2>
+                    <h2 className="text-3xl font-semibold mb-8">Our Services</h2>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         <Card className="shadow-lg">
                             <CardContent className="p-6 flex flex-col items-center text-center">
@@ -100,8 +100,8 @@ export default function AboutPage() {
 
                 <section className="mb-16 flex flex-col lg:flex-row-reverse items-center gap-8">
                     <div className="lg:w-1/2">
-                        <h2 className="text-3xl font-semibold mb-4 text-primary">Our Team</h2>
-                        <p className="text-xl text-gray-700">
+                        <h2 className="text-3xl font-semibold mb-4">Our Team</h2>
+                        <p className="text-xl">
                             Well, it's just me for now. I am still a student and I just enjoy outdoor activities in
                             general. I am definitely not the most experienced so if you have any suggestions, go ahead and contact me!<br/>
                             I was planning trips with my friends and I noticed that it is hard to find rental places
@@ -129,8 +129,8 @@ export default function AboutPage() {
                 </div>
 
                 <section className="mb-16">
-                    <h2 className="text-3xl font-semibold mb-4 text-primary">Sustainability Commitment</h2>
-                    <p className="text-xl text-gray-700">
+                    <h2 className="text-3xl font-semibold mb-4">Sustainability Commitment</h2>
+                    <p className="text-xl">
                         At KayakInSweden, we're committed to promoting sustainable and responsible kayaking practices.
                         We encourage
                         our users to respect the environment, follow Leave No Trace principles, and contribute to the
@@ -149,8 +149,8 @@ export default function AboutPage() {
 
 
                 <section className="mb-16">
-                    <h2 className="text-3xl font-semibold mb-4 text-primary">Get Involved</h2>
-                    <p className="text-xl text-gray-700">
+                    <h2 className="text-3xl font-semibold mb-4">Get Involved</h2>
+                    <p className="text-xl">
                         We welcome contributions from the kayaking community! Whether you have a favorite spot to share or
                         tips for fellow kayakers, we'd love to hear from you.
                     </p>

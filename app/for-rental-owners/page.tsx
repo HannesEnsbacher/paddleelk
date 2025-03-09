@@ -4,10 +4,10 @@ import {Mail} from "lucide-react"
 export default function RentalOwnersInfo() {
     return (
         <div className="container mx-auto px-4 pt-8 pb-12 max-w-5xl ">
-            <h1 className="text-3xl font-bold mb-6 text-primary">Information for Rental Location Owners</h1>
+            <h1 className="text-3xl font-bold mb-6 ">Information for Rental Location Owners</h1>
 
             <section className="mb-8">
-                <h2 className="text-2xl font-semibold mb-4 text-primary">About Our Project</h2>
+                <h2 className="text-2xl font-semibold mb-4 ">About Our Project</h2>
                 <p className="mb-4">
                     Welcome to our platform! We've created this project to make it easier for adventure seekers to
                     find kayak and
@@ -26,7 +26,7 @@ export default function RentalOwnersInfo() {
             </section>
 
             <section className="mb-8">
-                <h2 className="text-2xl font-semibold mb-4 text-primary">Data Management</h2>
+                <h2 className="text-2xl font-semibold mb-4">Data Management</h2>
                 <p className="mb-4">
                     We try to keep our listings as accurate and up-to-date as possible. However, we understand that
                     changes can
@@ -49,7 +49,7 @@ export default function RentalOwnersInfo() {
             </section>
 
             <section className="mb-8">
-                <h2 className="text-2xl font-semibold mb-4 text-primary">Contact Us</h2>
+                <h2 className="text-2xl font-semibold mb-4">Contact Us</h2>
                 <p className="mb-4">
                     We welcome any inquiries, feedback, or other requests. Whether you need to update your
                     information,
@@ -66,7 +66,7 @@ export default function RentalOwnersInfo() {
             </section>
 
             <section>
-                <h2 className="text-2xl font-semibold mb-4 text-primary">Partnerships and Cooperation</h2>
+                <h2 className="text-2xl font-semibold mb-4">Partnerships and Cooperation</h2>
                 <p className="mb-4">
                     We're always open to exploring new ways to support and promote kayak and canoe rentals in
                     Sweden. If you're

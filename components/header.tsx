@@ -4,7 +4,7 @@ import {useState, useEffect} from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import Image from "next/image"
-import {SailboatIcon as Kayak, Menu, X} from "lucide-react"
+import { Menu, X} from "lucide-react"
 
 const navItems = [
     {name: "Home", href: "/"},
@@ -58,7 +58,7 @@ export function Header() {
                                         href={item.href}
                                         className={`relative group py-3 px-4 rounded-md transition-colors duration-300
                                         ${isActive(item.href)
-                                                ? "bg-secondary-900 text-secondary-foreground"
+                                                ? "bg-accent text-accent-foreground"
                                                 : "hover:bg-primary-foreground/10"}`}>
                                         <span>{item.name}</span>
                                         {!isActive(item.href) && (

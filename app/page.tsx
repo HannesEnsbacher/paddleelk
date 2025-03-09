@@ -11,7 +11,7 @@ export default function Home() {
             <section className="pt-24 lg:pt-32 pb-16 lg:pb-24 overflow-hidden">
                 <div className="container mx-auto px-4 text-center">
                     <div className="animate-fade-in-up mb-12 lg:mb-16">
-                        <h1 className="text-4xl lg:text-6xl font-bold text-primary mb-6">Discover Kayak Rentals in
+                        <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 mb-6">Discover Kayak Rentals in
                             Sweden</h1>
                         <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
                             Explore Sweden's breathtaking waterways and find the perfect kayak rental spots for your
@@ -35,7 +35,7 @@ export default function Home() {
                                     className="absolute inset-0 bg-black bg-opacity-10 transition-opacity duration-300 group-hover:bg-opacity-20 flex items-center justify-center">
                                     <Button
                                         size="lg"
-                                        className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 transform group-hover:scale-105"
+                                        className="bg-accent text-accent-foreground hover:bg-accent-500 transition-all duration-300 transform group-hover:scale-105"
                                     >
                                         Explore Interactive Map
                                     </Button>
@@ -56,7 +56,7 @@ export default function Home() {
             {/* About Us / Why Choose Us Section */}
             <section className="py-16">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-8 text-primary">Why Use KayakInSweden</h2>
+                    <h2 className="text-3xl font-bold text-center mb-8">Why Use KayakInSweden</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
                             {
@@ -104,7 +104,7 @@ export default function Home() {
             {/* Featured Kayaking Destinations Section */}
             <section className="py-16">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-8 text-primary">Featured Kayaking Destinations</h2>
+                    <h2 className="text-3xl font-bold text-center mb-8">Featured Kayaking Destinations</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {["Stockholm Archipelago", "Göta Canal", "Bohuslän Coast"].map((destination, index) => (
                             <Link key={index} href={`/explore?destination=${encodeURIComponent(destination)}`}
@@ -189,21 +189,43 @@ export default function Home() {
             {/*    </div>*/}
             {/*</section>*/}
 
+            <div className="container mx-auto px-4">
+                <hr
+                    className="h-px border-0  bg-gradient-to-r from-transparent via-primary/50 to-transparent my-8"
+                    aria-hidden="true"
+                />
+            </div>
+
             {/* Call-to-Action Section */}
-            <section className="py-16 bg-accent text-accent-foreground">
-                <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-bold mb-4">Ready to Find Your Perfect Kayak Rental?</h2>
-                    <p className="text-xl mb-8">Explore our interactive map and discover the best kayaking spots in
-                        Sweden!</p>
-                    <Link href="/explore">
-                        <Button
-                            size="lg"
-                            variant="secondary"
-                            className="bg-white text-primary hover:bg-primary hover:text-white transition-colors duration-300"
-                        >
-                            Explore Rental Locations
-                        </Button>
-                    </Link>
+            <section className="py-16">
+                <div className="container mx-auto px-4">
+                    <div className="mb-16 flex flex-col lg:flex-row items-center gap-8">
+                        <div className="w-full lg:w-1/2 h-[300px] lg:h-[400px] relative rounded-full overflow-hidden">
+                            <Image
+                                src="/placeholder-image.png"
+                                alt="Kayaking in Sweden"
+                                style={{objectFit: "cover"}}
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                fill
+                                priority
+                            />
+                        </div>
+                        <div className="">
+                            <h2 className="text-3xl font-bold mb-4">Ready to Find Your Perfect Kayak Rental?</h2>
+                            <p className="text-xl text-gray-700 mb-8">Explore our interactive map and discover the best kayaking spots
+                                in
+                                Sweden!</p>
+                            <Link href="/explore">
+                                <Button
+                                    size="lg"
+                                    variant="primary"
+                                    className="bg-accent text-accent-foreground hover:bg-accent-500 transition-colors duration-300"
+                                >
+                                    Explore Rental Locations
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
