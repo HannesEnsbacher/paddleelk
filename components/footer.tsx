@@ -50,10 +50,12 @@ export function Footer() {
                             {/*    <SiYoutube className=" hover:text-red-600" size={24}/>*/}
                             {/*</a>*/}
                         </div>
-                        <p className="mt-4">Join our Discord community:</p>
-                        <a href="#" className="text-secondary hover:underline">
-                            KayakInSweden Discord
+                        <div className="mt-2">
+                            <a href="#" className="underline hover:text-accent">
+                            Join the PaddleTours Discord
                         </a>
+                        </div>
+
                     </div>
                 </div>
                 <div className="mt-8 pt-8 border-t border-primary-foreground/10 text-center">

@@ -13,7 +13,7 @@ export default function Home() {
                     <div className="animate-fade-in-up mb-12 lg:mb-16">
                         <h1 className="text-4xl lg:text-6xl font-bold text-primary mb-6">Discover Kayak Rentals in
                             Sweden</h1>
-                        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+                        <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
                             Explore Sweden's breathtaking waterways and find the perfect kayak rental spots for your
                             adventure.
                         </p>
@@ -190,7 +190,7 @@ export default function Home() {
             {/*</section>*/}
 
             {/* Call-to-Action Section */}
-            <section className="py-16 bg-muted text-primary">
+            <section className="py-16 bg-accent text-accent-foreground">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold mb-4">Ready to Find Your Perfect Kayak Rental?</h2>
                     <p className="text-xl mb-8">Explore our interactive map and discover the best kayaking spots in

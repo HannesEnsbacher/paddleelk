@@ -59,7 +59,7 @@ export function Header() {
                                         href={item.href}
                                         className={`relative group py-2 px-3 rounded-md transition-colors duration-300
                                         ${isActive(item.href)
-                                                ? "bg-secondary text-secondary-foreground"
+                                                ? "bg-secondary-900 text-secondary-foreground"
                                                 : "hover:bg-primary-foreground/10"}`}>
                                         <span>{item.name}</span>
                                         {!isActive(item.href) && (
