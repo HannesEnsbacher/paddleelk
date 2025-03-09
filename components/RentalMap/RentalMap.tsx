@@ -49,6 +49,13 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
                     }
                 )
                 mapRef.current.loadImage(
+                    './marker-orange.png',
+                    (error, image) => {
+                        if (error) throw error
+                        mapRef.current.addImage('marker-orange', image);
+                    }
+                )
+                mapRef.current.loadImage(
                     './marker-red.png',
                     (error, image) => {
                         if (error) throw error
@@ -62,6 +69,13 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
                         mapRef.current.addImage('marker-green', image);
                     }
                 )
+                mapRef.current.loadImage(
+                    './marker-blue.png',
+                    (error, image) => {
+                        if (error) throw error
+                        mapRef.current.addImage('marker-blue', image);
+                    }
+                )
 
                 mapRef.current.addSource('rental-locations', {
                     type: 'geojson',
@@ -73,7 +87,7 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
                     'type': 'symbol',
                     'source': 'rental-locations',
                     'layout': {
-                        'icon-image': 'marker-gray',
+                        'icon-image': 'marker-orange',
                         'icon-anchor': 'bottom',
                         'icon-allow-overlap': true,
                     }
@@ -92,7 +106,7 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
                     'type': 'symbol',
                     'source': 'favorite-locations',
                     'layout': {
-                        'icon-image': 'marker-red',
+                        'icon-image': 'marker-blue',
                         'icon-anchor': 'bottom',
                         'icon-allow-overlap': true,
                     }
@@ -115,14 +129,6 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
                         'icon-image': 'marker-green',
                         'icon-anchor': 'bottom',
                         'icon-allow-overlap': true,
-                        'text-allow-overlap': true,
-                        'text-field': ['get', 'name'],
-                        'text-font': [
-                            'Open Sans Semibold',
-                            'Arial Unicode MS Bold'
-                        ],
-                        'text-offset': [0, 0.25],
-                        'text-anchor': 'top',
                     }
                 });
 
