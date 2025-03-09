@@ -24,7 +24,7 @@ const badgeInfo = {
 
 export default function LocationCard({ location, isFavorite, toggleFavorite }) {
     return (
-        <Card className="w-full max-w-md hover:bg-white shadow-lg hover:shadow-xl transition-all duration-200">
+        <Card className="w-full max-w-md hover:bg-white shadow-lg hover:shadow-xl transition-all duration-200 border-border">
             <CardContent className="p-4">
                 <div className="flex items-start justify-between">
                     <div>

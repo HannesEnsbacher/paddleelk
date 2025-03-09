@@ -45,7 +45,7 @@ export default function Sidebar({
                                 key={location.id}
                                 ref={(el) => (locationRefs.current[location.id] = el)}
                                 className={`cursor-pointer ${
-                                    selectedLocation?.id === location.id ? "ring-2 ring-emerald-500 rounded-lg" : ""
+                                    selectedLocation?.id === location.id ? "ring-2 ring-primary-500 rounded-lg" : ""
                                 }`}
                                 onClick={() => onLocationSelect(location)}
                             >
