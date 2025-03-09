@@ -6,7 +6,7 @@ import {MapPin, Compass, Map} from "lucide-react"
 
 export default function Home() {
     return (
-        <div className="flex flex-col min-h-screen bg-gradient-to-b from-white via-primary-200 to-white">
+        <div className="flex flex-col min-h-screen">
             {/* Hero Section */}
             <section className="pt-24 lg:pt-32 pb-16 lg:pb-24 overflow-hidden">
                 <div className="container mx-auto px-4 text-center">
