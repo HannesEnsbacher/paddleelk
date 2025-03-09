@@ -22,7 +22,7 @@ export default function Home() {
                         <div className="relative animate-reveal">
                             <div className="w-full h-[60vh] lg:h-[80vh] relative rounded-lg overflow-hidden shadow-xl">
                                 <Image
-                                    src="/placeholder-image.png"
+                                    src="/placeholder-image-map.png"
                                     alt="Scenic Swedish lake with kayaks"
                                     style={{objectFit: "cover", objectPosition: "center top"}}
                                     sizes="100vw"
@@ -202,7 +202,7 @@ export default function Home() {
                     <div className="mb-16 flex flex-col lg:flex-row items-center gap-8">
                         <div className="w-full lg:w-1/2 h-[300px] lg:h-[400px] relative rounded-full overflow-hidden">
                             <Image
-                                src="/placeholder-image.png"
+                                src="/placeholder-image-map.png"
                                 alt="Kayaking in Sweden"
                                 style={{objectFit: "cover"}}
                                 sizes="(max-width: 1024px) 100vw, 50vw"
