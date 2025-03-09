@@ -10,7 +10,7 @@ export default function About() {
             </p>
             <div className="mb-6">
                 <h2 className="text-2xl font-semibold mb-2">Contact Information</h2>
-                <p className="mb-1">Email: info@kayakinsweden.com</p>
+                <p className="mb-1">Email: info@paddletours.com</p>
                 <p className="mb-1">Address: Kayakvägen 123, 123 45 Stockholm, Sweden</p>
             </div>
             <div className="mb-6">

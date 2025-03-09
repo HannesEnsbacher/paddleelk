@@ -6,7 +6,7 @@ export default function TermsOfService() {
             <h1 className="text-3xl font-bold mb-6">Terms of Service</h1>
             <p className="mb-4">Last updated: {new Date().toLocaleDateString()}</p>
             <p className="mb-4">
-                Welcome to KayakInSweden. By using our website and services, you agree to comply with and be bound by the
+                Welcome to PaddleTours. By using our website and services, you agree to comply with and be bound by the
                 following terms and conditions.
             </p>
             <h2 className="text-2xl font-semibold mt-6 mb-4">Booking and Cancellation</h2>
@@ -18,7 +18,7 @@ export default function TermsOfService() {
             <h2 className="text-2xl font-semibold mt-6 mb-4">Safety and Conduct</h2>
             <ul className="list-disc list-inside mb-4">
                 <li>Participants must follow all safety instructions provided by our guides</li>
-                <li>KayakInSweden reserves the right to refuse service to anyone for safety reasons</li>
+                <li>PaddleTours reserves the right to refuse service to anyone for safety reasons</li>
                 <li>Participants are responsible for any damage caused to equipment due to negligence</li>
             </ul>
             <p className="mb-4">For the complete terms of service, please contact us.</p>

@@ -28,20 +28,7 @@ body {
   }
 }
 
-@layer base {
-  h1 {
-    @apply text-gray-800;
-  }
-  h2 {
-    @apply text-gray-800;
-  }
-  h3 {
-    @apply text-gray-800;
-  }
-  p {
-    @apply text-gray-700;
-  }
-}
+
 
 
 @keyframes fadeInUp {

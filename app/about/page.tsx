@@ -7,13 +7,13 @@ export default function AboutPage() {
     return (
         <div className="min-h-screen py-12">
             <main className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 className="text-5xl font-bold mb-12 text-center">About KayakInSweden</h1>
+                <h1 className="text-5xl font-bold mb-12 text-center">About PaddleTours</h1>
 
                 <section className="mb-16 flex flex-col lg:flex-row items-center gap-8">
                     <div className="lg:w-1/2">
                         <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
                         <p className="text-xl">
-                            KayakInSweden aims to provide a comprehensive guide for kayaking enthusiasts looking to
+                            PaddleTours aims to provide a comprehensive guide for kayaking enthusiasts looking to
                             explore the
                             beautiful waterways of Sweden. Our mission is to make kayaking in Sweden accessible, safe,
                             and enjoyable
@@ -131,7 +131,7 @@ export default function AboutPage() {
                 <section className="mb-16">
                     <h2 className="text-3xl font-semibold mb-4">Sustainability Commitment</h2>
                     <p className="text-xl">
-                        At KayakInSweden, we're committed to promoting sustainable and responsible kayaking practices.
+                        At PaddleTours, we're committed to promoting sustainable and responsible kayaking practices.
                         We encourage
                         our users to respect the environment, follow Leave No Trace principles, and contribute to the
                         preservation

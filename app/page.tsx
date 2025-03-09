@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <div className="flex flex-col min-h-screen">
             {/* Hero Section */}
-            <section className="pt-24 lg:pt-32 pb-16 lg:pb-24 overflow-hidden">
+            <section className="pt-16 lg:pt-20 pb-16 lg:pb-24 overflow-hidden">
                 <div className="container mx-auto px-4 text-center">
                     <div className="animate-fade-in-up mb-12 lg:mb-16">
                         <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 mb-6">Discover Kayak Rentals in
@@ -20,7 +20,7 @@ export default function Home() {
                     </div>
                     <Link href="/explore" className="group block">
                         <div className="relative animate-reveal">
-                            <div className="w-full h-[60vh] lg:h-[80vh] relative rounded-lg overflow-hidden shadow-xl">
+                            <div className="w-full h-[50vh] lg:h-[60vh] relative rounded-lg overflow-hidden shadow-xl">
                                 <Image
                                     src="/placeholder-image-map.png"
                                     alt="Scenic Swedish lake with kayaks"
@@ -56,7 +56,7 @@ export default function Home() {
             {/* About Us / Why Choose Us Section */}
             <section className="py-16">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-8">Why Use KayakInSweden</h2>
+                    <h2 className="text-3xl font-bold text-center mb-8">Why Use PaddleTours</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
                             {

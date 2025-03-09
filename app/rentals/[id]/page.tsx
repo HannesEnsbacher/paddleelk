@@ -40,7 +40,7 @@ export default async function RentalLocationDetailsPage({params}) {
                             <Card>
                                 <CardHeader>
                                     <CardTitle className="text-3xl">{rentalLocation.name}</CardTitle>
-                                    <div className="flex items-center text-muted-foreground">
+                                    <div className="flex items-center text-card-foreground">
                                         <MapPin className="w-4 h-4 mr-2"/>
                                         <span>{rentalLocation.location_name}</span>
                                     </div>
@@ -56,13 +56,13 @@ export default async function RentalLocationDetailsPage({params}) {
                                 </CardHeader>
                                 <CardContent className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
                                     <div className="flex items-center">
-                                        <Clock className="w-5 h-5 mr-2 text-muted-foreground"/>
+                                        <Clock className="w-5 h-5 mr-2 text-card-foreground"/>
                                         <span>
                                             {rentalLocation.rental_duration_min_days}-{rentalLocation.rental_duration_max_days} days rental periods
                                         </span>
                                         <Tooltip>
                                             <TooltipTrigger>
-                                                <Info className="w-4 h-4 ml-2 text-muted-foreground"/>
+                                                <Info className="w-4 h-4 ml-2 text-card-foreground"/>
                                             </TooltipTrigger>
                                             <TooltipContent>
                                                 <p>
@@ -73,11 +73,11 @@ export default async function RentalLocationDetailsPage({params}) {
                                         </Tooltip>
                                     </div>
                                     <div className="flex items-center">
-                                        <DollarSign className="w-5 h-5 mr-2 text-muted-foreground"/>
+                                        <DollarSign className="w-5 h-5 mr-2 text-card-foreground"/>
                                         <span>Approx. {rentalLocation.price_per_week} SEK for 7 days</span>
                                         <Tooltip>
                                             <TooltipTrigger>
-                                                <Info className="w-4 h-4 ml-2 text-muted-foreground"/>
+                                                <Info className="w-4 h-4 ml-2 text-card-foreground"/>
                                             </TooltipTrigger>
                                             <TooltipContent>
                                                 <p>
@@ -124,7 +124,7 @@ export default async function RentalLocationDetailsPage({params}) {
                                         },
                                     ].map(({icon: Icon, label, value}) => (
                                         <div key={label} className="flex items-center gap-2">
-                                            <Icon className="w-4 h-4 text-muted-foreground"/>
+                                            <Icon className="w-4 h-4 text-card-foreground"/>
                                             <span>
                     {label}: {value ? "Yes" : "No"}
                   </span>
@@ -160,11 +160,11 @@ export default async function RentalLocationDetailsPage({params}) {
                                             if (label) {
                                                 return (
                                                     <div key={label} className="flex items-center gap-2">
-                                                        <Icon className="w-4 h-4 text-muted-foreground"/>
+                                                        <Icon className="w-4 h-4 text-card-foreground"/>
                                                         <span>{label}</span>
                                                         {tooltip && <Tooltip>
                                                             <TooltipTrigger>
-                                                                <Info className="w-4 h-4 ml-2 text-muted-foreground"/>
+                                                                <Info className="w-4 h-4 ml-2 text-card-foreground"/>
                                                             </TooltipTrigger>
                                                             <TooltipContent>
                                                                 <p>
