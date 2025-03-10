@@ -24,6 +24,48 @@ import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/compon
 import DetailsMap from "@/components/DetailsMap/details-map"
 import {getRentalLocationById} from "@/lib/supabase";
 
+
+export async function generateMetadata({ params }) {
+    const {id} = await params;
+    // Fetch rental details based on the dynamic ID (for example purposes)
+    const rentalData = await getRentalLocationById(id);
+
+    // Fallback in case the rental data doesn't exist
+    if (!rentalData) {
+        return {
+            title: "Rental Not Found | PaddleTours",
+            description: "The kayak or canoe rental you are looking for could not be found.",
+            keywords: ["kayak rental Sweden", "canoe rental Sweden", "rental not found"],
+            openGraph: {
+                title: "Rental Not Found | PaddleTours",
+                description: "Sorry, we couldn't find the rental you're looking for.",
+                url: `https://paddletours.eu/rental/${id}`,
+                type: "website",
+            }
+        };
+    }
+
+    // Assuming rentalData contains these fields: name, location, description, and images
+    return {
+        title: `${rentalData.name} | PaddleTours`,
+        description: `Find out more details about this location, including trip options, rental prices, and booking information.`,
+        keywords: [
+            "kayak rental Sweden",
+            "canoe rental Sweden",
+            "kayak rentals in [location]",
+            "self-guided kayak tours",
+            "best kayak rentals Sweden",
+        ],
+        openGraph: {
+            title: `${rentalData.name} | PaddleTours`,
+            description: `Find out more details about this location, including trip options, rental prices, and booking information.`,
+            url: `https://paddletours.eu/rental/${id}`,
+            type: "website",
+        }
+    };
+}
+
+
 export default async function RentalLocationDetailsPage({params}) {
     const {id} = await params;
     const rentalLocation = await getRentalLocationById(id);

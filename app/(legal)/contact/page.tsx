@@ -1,6 +1,21 @@
 import Link from "next/link"
 
-export default function About() {
+
+export function generateMetadata() {
+    return {
+        title: "Contact PaddleTours | Get in Touch with Us",
+        description: "Have questions or need assistance? Contact PaddleTours for inquiries about kayak rentals, trip planning, or listing your rental business.",
+        keywords: ["contact PaddleTours", "kayak rental support", "customer service Sweden"],
+        openGraph: {
+            title: "Contact PaddleTours | Get in Touch with Us",
+            description: "Do you have questions planning your kayak trip with PaddleTours? Contact PaddleTours for support and inquiries.",
+            url: "https://paddletours.eu/contact",
+            type: "website"
+        }
+    };
+}
+
+export default function Contact() {
     return (
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
@@ -10,17 +25,9 @@ export default function About() {
             </p>
             <div className="mb-6">
                 <h2 className="text-2xl font-semibold mb-2">Contact Information</h2>
-                <p className="mb-1">Email: info@paddletours.com</p>
+                <p className="mb-1">Email: paddletours@gmail.com</p>
                 <p className="mb-1">Address: Kayakvägen 123, 123 45 Stockholm, Sweden</p>
             </div>
-            <div className="mb-6">
-                <h2 className="text-2xl font-semibold mb-2">Business Hours</h2>
-                <p className="mb-1">Monday - Friday: 9:00 AM - 5:00 PM</p>
-                <p className="mb-1">Saturday - Sunday: 10:00 AM - 4:00 PM</p>
-            </div>
-            <p className="mb-4">
-                For urgent matters outside of business hours, please email us, and we'll get back to you as soon as possible.
-            </p>
             <Link href="/" className="text-blue-600 hover:underline">
                 Return to Home
             </Link>

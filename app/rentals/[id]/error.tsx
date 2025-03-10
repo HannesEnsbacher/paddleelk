@@ -17,10 +17,10 @@ export default function ErrorPage({ error }: { error: Error }) {
                         <AlertTriangle className="h-6 w-6 text-destructive" />
                         <CardTitle>Error</CardTitle>
                     </div>
-                    <CardDescription>There was a problem loading the kayak rental details.</CardDescription>
+                    <CardDescription className="text-card-foreground">There was a problem loading the kayak rental details.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-card-foreground">
                         We're sorry, but we couldn't fetch the information for this kayak rental. This could be due to a network
                         issue or a problem with our server.
                     </p>

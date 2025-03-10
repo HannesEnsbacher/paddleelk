@@ -1,5 +1,20 @@
 import Link from "next/link"
 
+export function generateMetadata() {
+    return {
+        title: "Terms & Conditions | PaddleTours",
+        description: "Review the terms and conditions for using PaddleTours, including service guidelines, disclaimers, and legal information.",
+        keywords: ["PaddleTours terms", "kayak rental terms", "canoe rental terms", "user agreement Sweden"],
+        openGraph: {
+            title: "Terms & Conditions | PaddleTours",
+            description: "Learn about PaddleTours’ terms of service, including rental guidelines, user responsibilities, and legal disclaimers.",
+            url: "https://paddletours.com/terms",
+            type: "article"
+        }
+    };
+}
+
+
 export default function TermsOfService() {
     return (
         <div className="container mx-auto px-4 py-8">

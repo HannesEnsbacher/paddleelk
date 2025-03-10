@@ -1,4 +1,18 @@
-import React from "react";
+
+export function generateMetadata() {
+    return {
+        title: "Privacy Policy | PaddleTours",
+        description: "Read PaddleTours’ privacy policy to learn how we handle your data, protect your information, and ensure transparency in our services.",
+        keywords: ["PaddleTours privacy policy"],
+        openGraph: {
+            title: "Privacy Policy | PaddleTours",
+            description: "Understand how PaddleTours protects your personal data and ensures your privacy while using our services.",
+            url: "https://paddletours.eu/privacy",
+            type: "article"
+        }
+    };
+}
+
 
 const PrivacyPolicy = () => {
     return (

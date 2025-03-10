@@ -1,16 +1,10 @@
 import {Header} from "@/components/header"
 import {Footer} from "@/components/footer"
-import type {Metadata} from "next"
 import {Inter} from "next/font/google"
 import "./globals.css"
 import type React from "react"
 
 const inter = Inter({subsets: ["latin"]})
-
-export const metadata: Metadata = {
-    title: "PaddleTours",
-    description: "Discover the beauty of Sweden from the water",
-}
 
 export default function RootLayout({
                                        children,

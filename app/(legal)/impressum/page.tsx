@@ -1,5 +1,20 @@
 import Link from "next/link"
 
+export function generateMetadata() {
+        return {
+                title: "Legal Notice (Impressum) | PaddleTours",
+                description: "View PaddleTours’ legal notice, company details, and regulatory information in compliance with applicable laws.",
+                keywords: ["PaddleTours legal notice", "company information", "impressum Sweden"],
+                openGraph: {
+                        title: "Legal Notice (Impressum) | PaddleTours",
+                        description: "Find official company details and legal information for PaddleTours.",
+                        url: "https://paddletours.eu/impressum",
+                        type: "article"
+                }
+        };
+}
+
+
 export default function Impressum() {
     return (
         <div className="container mx-auto px-4 py-8">

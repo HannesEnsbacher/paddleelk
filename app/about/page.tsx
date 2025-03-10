@@ -1,7 +1,30 @@
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
+import {Button} from "@/components/ui/button"
 import {MapPin, LifeBuoy, Calendar, Info} from "lucide-react"
 import {Card, CardContent} from "@/components/ui/card";
+
+export function generateMetadata() {
+    return {
+        title: "About PaddleTours | Your Guide to Kayak & Canoe Rentals in Sweden",
+        description: "Learn more about PaddleTours—your go-to platform for finding the best kayak and canoe rental locations in Sweden. Discover how we help paddlers explore Sweden’s waters.",
+        keywords: ["about PaddleTours", "kayak rental Sweden", "canoe rental Sweden", "about kayaking in Sweden", "self-guided tours Sweden"],
+        openGraph: {
+            title: "About PaddleTours | Your Guide to Kayak & Canoe Rentals in Sweden",
+            description: "PaddleTours helps outdoor enthusiasts easily find and compare top kayak and canoe rental locations in Sweden.",
+            url: "https://paddletours.eu/about",
+            type: "website",
+            images: [
+                {
+                    url: "https://paddletours.com/about-mission.jpg",
+                    width: 1200,
+                    height: 630,
+                    alt: "A remote lake on a canoe tour in Sweden"
+                }
+            ]
+        }
+    };
+}
+
 
 export default function AboutPage() {
     return (
@@ -11,19 +34,18 @@ export default function AboutPage() {
 
                 <section className="mb-16 flex flex-col lg:flex-row items-center gap-8">
                     <div className="lg:w-1/2">
-                        <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
+                        <h2 className="text-3xl font-semibold mb-4">Making Kayak & Canoe Trip Planning Easier</h2>
                         <p className="text-xl">
-                            PaddleTours aims to provide a comprehensive guide for kayaking enthusiasts looking to
-                            explore the
-                            beautiful waterways of Sweden. Our mission is to make kayaking in Sweden accessible, safe,
-                            and enjoyable
-                            for everyone, from beginners to experienced paddlers.
+                            PaddleTours helps outdoor enthusiasts easily discover and compare the best kayak and canoe
+                            rentals across Sweden. <br/>
+                            Whether you're looking for a self-guided tour, an adventure with a guide, a remote
+                            experience, or a weekend trip, we’ve got you covered.
                         </p>
                     </div>
                     <div className="w-full lg:w-1/2 h-[300px] lg:h-[400px] relative rounded-lg overflow-hidden">
                         <Image
-                            src="/placeholder-image.png"
-                            alt="Kayaking in Sweden"
+                            src="/about-mission.jpg"
+                            alt="A remote lake on a canoe tour in Sweden"
                             style={{objectFit: "cover"}}
                             sizes="(max-width: 1024px) 100vw, 50vw"
                             fill
@@ -40,13 +62,12 @@ export default function AboutPage() {
                 </div>
 
                 <section className="mb-16">
-                    <h2 className="text-3xl font-semibold mb-4">Why Kayak in Sweden?</h2>
+                    <h2 className="text-3xl font-semibold mb-4">Why Kayaking & Canoeing in Sweden is an Unforgettable
+                        Experience</h2>
                     <p className="text-xl">
-                        Sweden offers a unique kayaking experience with its vast network of lakes, rivers, and coastal
-                        areas. From
-                        the tranquil waters of Lake Vänern to the archipelagos of Stockholm and Gothenburg, there's a
-                        diverse range
-                        of kayaking opportunities for all skill levels.
+                        Sweden offers some of the most stunning paddling routes in the world—from the Stockholm and
+                        Gothenburg Archipelagos to remote wilderness lakes. With its Right of Public Access, you can
+                        freely explore nature, camp along the way, and enjoy pristine waters with minimal crowds.
                     </p>
                 </section>
 
@@ -58,34 +79,34 @@ export default function AboutPage() {
                 </div>
 
                 <section className="mb-16">
-                    <h2 className="text-3xl font-semibold mb-8">Our Services</h2>
+                    <h2 className="text-3xl font-semibold mb-8">What PaddleTours Offers</h2>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         <Card className="shadow-lg">
                             <CardContent className="p-6 flex flex-col items-center text-center">
                                 <MapPin className="w-12 h-12 text-primary mb-4"/>
-                                <h3 className="text-xl font-semibold mb-2">Comprehensive Listings</h3>
-                                <p>Find the best kayak rental locations across Sweden, all in one place</p>
+                                <h3 className="text-xl font-semibold mb-2">Curated Selection of Top Rentals</h3>
+                                <p>We research and list only the best kayak and canoe rental centers, ensuring quality and reliability.</p>
                             </CardContent>
                         </Card>
                         <Card className="shadow-lg">
                             <CardContent className="p-6 flex flex-col items-center text-center">
                                 <LifeBuoy className="w-12 h-12 text-primary mb-4"/>
-                                <h3 className="text-xl font-semibold mb-2">Safety Tips</h3>
-                                <p>Safety tips and best practices for kayaking in Swedish waters</p>
+                                <h3 className="text-xl font-semibold mb-2">Easy-to-Find In-Depth Rental Information</h3>
+                                <p>Compare rental options, trip durations, equipment availability, pricing, and more before booking.</p>
                             </CardContent>
                         </Card>
                         <Card className="shadow-lg">
                             <CardContent className="p-6 flex flex-col items-center text-center">
                                 <Info className="w-12 h-12 text-primary mb-4"/>
-                                <h3 className="text-xl font-semibold mb-2">Rental Information</h3>
-                                <p>Information on kayak rentals and tours</p>
+                                <h3 className="text-xl font-semibold mb-2">Travel Guides & Trip Planning Tips</h3>
+                                <p>Discover regional spotlights, self-guided route recommendations, and insider tips to plan your adventure.</p>
                             </CardContent>
                         </Card>
                         <Card className="shadow-lg">
                             <CardContent className="p-6 flex flex-col items-center text-center">
                                 <Calendar className="w-12 h-12 text-primary mb-4"/>
-                                <h3 className="text-xl font-semibold mb-2">Seasonal Recommendations</h3>
-                                <p>Seasonal recommendations for the best kayaking experiences</p>
+                                <h3 className="text-xl font-semibold mb-2">Gear Recommendations & Rental Spotlights</h3>
+                                <p>Read expert insights on essential kayaking and camping gear, plus in-depth reviews of rental locations.</p>
                             </CardContent>
                         </Card>
                     </div>
@@ -100,19 +121,21 @@ export default function AboutPage() {
 
                 <section className="mb-16 flex flex-col lg:flex-row-reverse items-center gap-8">
                     <div className="lg:w-1/2">
-                        <h2 className="text-3xl font-semibold mb-4">Our Team</h2>
+                        <h2 className="text-3xl font-semibold mb-4">Meet the Team and Story Behind PaddleTours</h2>
                         <p className="text-xl">
                             Well, it's just me for now. I am still a student and I just enjoy outdoor activities in
-                            general. I am definitely not the most experienced so if you have any suggestions, go ahead and contact me!<br/>
+                            general. I am definitely not the most experienced so if you have any suggestions, go ahead
+                            and contact me!<br/>
                             I was planning trips with my friends and I noticed that it is hard to find rental places
                             because they are small businesses.
                             That is why I decided to create a better way to look for them.
+                            My goal is to help you find the best rental locations and plan unforgettable trips.
                         </p>
                     </div>
                     <div className="w-full lg:w-1/2 h-[300px] lg:h-[400px] relative rounded-lg overflow-hidden">
                         <Image
-                            src="/placeholder-image.png"
-                            alt="Our Team"
+                            src="/about-team.jpg"
+                            alt="A single kayaker paddling in the Stockholm Archipelago"
                             style={{objectFit: "cover"}}
                             sizes="(max-width: 1024px) 100vw, 50vw"
                             fill
@@ -129,9 +152,9 @@ export default function AboutPage() {
                 </div>
 
                 <section className="mb-16">
-                    <h2 className="text-3xl font-semibold mb-4">Sustainability Commitment</h2>
+                    <h2 className="text-3xl font-semibold mb-4">Our Commitment to Sustainable Travel</h2>
                     <p className="text-xl">
-                        At PaddleTours, we're committed to promoting sustainable and responsible kayaking practices.
+                        At PaddleTours, we're committed to promoting sustainable and responsible paddling practices.
                         We encourage
                         our users to respect the environment, follow Leave No Trace principles, and contribute to the
                         preservation
@@ -149,10 +172,10 @@ export default function AboutPage() {
 
 
                 <section className="mb-16">
-                    <h2 className="text-3xl font-semibold mb-4">Get Involved</h2>
+                    <h2 className="text-3xl font-semibold mb-4">Get in Touch with PaddleTours</h2>
                     <p className="text-xl">
-                        We welcome contributions from the kayaking community! Whether you have a favorite spot to share or
-                        tips for fellow kayakers, we'd love to hear from you.
+                        We welcome contributions from the paddling community! Whether you have a favorite spot to share
+                        or tips for fellow kayakers, we'd love to hear from you.
                     </p>
                     <Button className="mt-6">Contact Us</Button>
                 </section>

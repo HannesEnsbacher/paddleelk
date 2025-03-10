@@ -1,6 +1,21 @@
 import Link from "next/link"
 import {Mail} from "lucide-react"
 
+export function generateMetadata() {
+    return {
+        title: " Your Kayak or Canoe Center on PaddleTours | PaddleTours",
+        description: "Are you a kayak or canoe rental provider in Sweden? Join PaddleTours to reach adventure seekers and get more bookings.",
+        keywords: ["paddletours kayak rental Sweden", "paddletours canoe rental Sweden", "promote kayak rental business", "increase kayak bookings"],
+        openGraph: {
+            title: "List Your Kayak or Canoe Center on PaddleTours | PaddleTours",
+            description: "Join PaddleTours and connect with paddlers looking for kayak and canoe rentals in Sweden.",
+            url: "https://paddletours.eu/for-rental-owners",
+            type: "website"
+        }
+    };
+}
+
+
 export default function RentalOwnersInfo() {
     return (
         <div className="container mx-auto px-4 pt-8 pb-12 max-w-5xl ">
