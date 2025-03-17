@@ -6,7 +6,7 @@ export function Footer() {
             <div className="container mx-auto px-4 py-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div>
-                        <h3 className="text-lg font-semibold mb-4 text-primary-foreground">PaddleTours</h3>
+                        <h3 className="text-lg font-semibold mb-4 text-primary-foreground">PaddleElk</h3>
                         <p className="text-primary-foreground">Discover the beauty of Sweden from the water.</p>
                     </div>
                     <div>
@@ -52,14 +52,14 @@ export function Footer() {
                         </div>
                         <div className="mt-2">
                             <a href="#" className="underline hover:text-accent ">
-                            Join the PaddleTours Discord
+                            Join the PaddleElk Discord
                         </a>
                         </div>
 
                     </div>
                 </div>
                 <div className="mt-8 pt-8 border-t border-primary-foreground/10 text-center ">
-                    <p className="text-primary-foreground">&copy; {new Date().getFullYear()} PaddleTours. All rights reserved.</p>
+                    <p className="text-primary-foreground">&copy; {new Date().getFullYear()} PaddleElk. All rights reserved.</p>
                 </div>
             </div>
         </footer>

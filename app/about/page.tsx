@@ -5,17 +5,17 @@ import {Card, CardContent} from "@/components/ui/card";
 
 export function generateMetadata() {
     return {
-        title: "About PaddleTours | Your Guide to Kayak & Canoe Rentals in Sweden",
-        description: "Learn more about PaddleTours—your go-to platform for finding the best kayak and canoe rental locations in Sweden. Discover how we help paddlers explore Sweden’s waters.",
-        keywords: ["about PaddleTours", "kayak rental Sweden", "canoe rental Sweden", "about kayaking in Sweden", "self-guided tours Sweden"],
+        title: "About PaddleElk | Your Guide to Kayak & Canoe Rentals in Sweden",
+        description: "Learn more about PaddleElk—your go-to platform for finding the best kayak and canoe rental locations in Sweden. Discover how we help paddlers explore Sweden’s waters.",
+        keywords: ["about PaddleElk", "kayak rental Sweden", "canoe rental Sweden", "about kayaking in Sweden", "self-guided tours Sweden"],
         openGraph: {
-            title: "About PaddleTours | Your Guide to Kayak & Canoe Rentals in Sweden",
-            description: "PaddleTours helps outdoor enthusiasts easily find and compare top kayak and canoe rental locations in Sweden.",
-            url: "https://paddletours.eu/about",
+            title: "About PaddleElk | Your Guide to Kayak & Canoe Rentals in Sweden",
+            description: "PaddleElk helps outdoor enthusiasts easily find and compare top kayak and canoe rental locations in Sweden.",
+            url: "https://paddleelk.eu/about",
             type: "website",
             images: [
                 {
-                    url: "https://paddletours.com/about-mission.jpg",
+                    url: "https://paddleelk.com/about-mission.jpg",
                     width: 1200,
                     height: 630,
                     alt: "A remote lake on a canoe tour in Sweden"
@@ -30,13 +30,13 @@ export default function AboutPage() {
     return (
         <div className="min-h-screen py-12">
             <main className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 className="text-5xl font-bold mb-12 text-center">About PaddleTours</h1>
+                <h1 className="text-5xl font-bold mb-12 text-center">About PaddleElk</h1>
 
                 <section className="mb-16 flex flex-col lg:flex-row items-center gap-8">
                     <div className="lg:w-1/2">
                         <h2 className="text-3xl font-semibold mb-4">Making Kayak & Canoe Trip Planning Easier</h2>
                         <p className="text-xl">
-                            PaddleTours helps outdoor enthusiasts easily discover and compare the best kayak and canoe
+                            PaddleElk helps outdoor enthusiasts easily discover and compare the best kayak and canoe
                             rentals across Sweden. <br/>
                             Whether you're looking for a self-guided tour, an adventure with a guide, a remote
                             experience, or a weekend trip, we’ve got you covered.
@@ -79,7 +79,7 @@ export default function AboutPage() {
                 </div>
 
                 <section className="mb-16">
-                    <h2 className="text-3xl font-semibold mb-8">What PaddleTours Offers</h2>
+                    <h2 className="text-3xl font-semibold mb-8">What PaddleElk Offers</h2>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         <Card className="shadow-lg">
                             <CardContent className="p-6 flex flex-col items-center text-center">
@@ -121,7 +121,7 @@ export default function AboutPage() {
 
                 <section className="mb-16 flex flex-col lg:flex-row-reverse items-center gap-8">
                     <div className="lg:w-1/2">
-                        <h2 className="text-3xl font-semibold mb-4">Meet the Team and Story Behind PaddleTours</h2>
+                        <h2 className="text-3xl font-semibold mb-4">Meet the Team and Story Behind PaddleElk</h2>
                         <p className="text-xl">
                             Well, it's just me for now. I am still a student and I just enjoy outdoor activities in
                             general. I am definitely not the most experienced so if you have any suggestions, go ahead
@@ -154,7 +154,7 @@ export default function AboutPage() {
                 <section className="mb-16">
                     <h2 className="text-3xl font-semibold mb-4">Our Commitment to Sustainable Travel</h2>
                     <p className="text-xl">
-                        At PaddleTours, we're committed to promoting sustainable and responsible paddling practices.
+                        At PaddleElk, we're committed to promoting sustainable and responsible paddling practices.
                         We encourage
                         our users to respect the environment, follow Leave No Trace principles, and contribute to the
                         preservation
@@ -172,7 +172,7 @@ export default function AboutPage() {
 
 
                 <section className="mb-16">
-                    <h2 className="text-3xl font-semibold mb-4">Get in Touch with PaddleTours</h2>
+                    <h2 className="text-3xl font-semibold mb-4">Get in Touch with PaddleElk</h2>
                     <p className="text-xl">
                         We welcome contributions from the paddling community! Whether you have a favorite spot to share
                         or tips for fellow kayakers, we'd love to hear from you.

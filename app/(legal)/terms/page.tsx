@@ -2,13 +2,13 @@ import Link from "next/link"
 
 export function generateMetadata() {
     return {
-        title: "Terms & Conditions | PaddleTours",
-        description: "Review the terms and conditions for using PaddleTours, including service guidelines, disclaimers, and legal information.",
-        keywords: ["PaddleTours terms", "kayak rental terms", "canoe rental terms", "user agreement Sweden"],
+        title: "Terms & Conditions | PaddleElk",
+        description: "Review the terms and conditions for using PaddleElk, including service guidelines, disclaimers, and legal information.",
+        keywords: ["PaddleElk terms", "kayak rental terms", "canoe rental terms", "user agreement Sweden"],
         openGraph: {
-            title: "Terms & Conditions | PaddleTours",
-            description: "Learn about PaddleTours’ terms of service, including rental guidelines, user responsibilities, and legal disclaimers.",
-            url: "https://paddletours.com/terms",
+            title: "Terms & Conditions | PaddleElk",
+            description: "Learn about PaddleElk’ terms of service, including rental guidelines, user responsibilities, and legal disclaimers.",
+            url: "https://paddleelk.com/terms",
             type: "article"
         }
     };
@@ -17,29 +17,44 @@ export function generateMetadata() {
 
 export default function TermsOfService() {
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold mb-6">Terms of Service</h1>
-            <p className="mb-4">Last updated: {new Date().toLocaleDateString()}</p>
-            <p className="mb-4">
-                Welcome to PaddleTours. By using our website and services, you agree to comply with and be bound by the
-                following terms and conditions.
-            </p>
-            <h2 className="text-2xl font-semibold mt-6 mb-4">Booking and Cancellation</h2>
-            <ul className="list-disc list-inside mb-4">
-                <li>All bookings are subject to availability and confirmation</li>
-                <li>Cancellations made 48 hours or more before the tour date are eligible for a full refund</li>
-                <li>Cancellations made less than 48 hours before the tour date are non-refundable</li>
-            </ul>
-            <h2 className="text-2xl font-semibold mt-6 mb-4">Safety and Conduct</h2>
-            <ul className="list-disc list-inside mb-4">
-                <li>Participants must follow all safety instructions provided by our guides</li>
-                <li>PaddleTours reserves the right to refuse service to anyone for safety reasons</li>
-                <li>Participants are responsible for any damage caused to equipment due to negligence</li>
-            </ul>
-            <p className="mb-4">For the complete terms of service, please contact us.</p>
+        <div className="max-w-5xl mx-auto p-6">
+            <h1  className="text-3xl font-bold mb-6">Terms and Conditions</h1>
+            <p className="mb-4">Last updated: 3/17/25</p>
+
+            <h2 className="text-2xl font-semibold mt-6 mb-4">1. Introduction</h2>
+            <p className="mb-4">Welcome to PaddleElk! We provide a curated selection of kayak and canoe rental locations in
+                Sweden. Our goal is to help users find rental centers offering multi-day trips. Please read these Terms
+                and Conditions carefully before using our website.</p>
+
+            <h2 className="text-2xl font-semibold mt-6 mb-4">2. Our Role</h2>
+            <p className="mb-4">[Your Website Name] acts as an informational resource. We do not own or operate any kayak or canoe rental
+                services. We do not handle bookings, payments, or customer service for any rental provider listed on our
+                site.</p>
+
+            <h2 className="text-2xl font-semibold mt-6 mb-4">3. Accuracy of Information</h2>
+            <p className="mb-4">We strive to keep the information on our site accurate and up-to-date, but we cannot guarantee the
+                completeness or correctness of all details. Users should verify details directly with the rental
+                providers.</p>
+
+            <h2 className="text-2xl font-semibold mt-6 mb-4">4. Third-Party Websites</h2>
+            <p className="mb-4">Our website contains links to third-party rental providers. We are not responsible for the content,
+                policies, or practices of these external sites.</p>
+
+            <h2 className="text-2xl font-semibold mt-6 mb-4">5. Limitation of Liability</h2>
+            <p className="mb-4">We are not liable for any issues, accidents, injuries, or disputes that may arise from renting kayaks or
+                canoes from the providers listed on our site. Use of our website is at your own risk.</p>
+
+            <h2 className="text-2xl font-semibold mt-6 mb-4">6. Changes to Terms</h2>
+            <p className="mb-4">We may update these terms at any time. Continued use of our website after changes are posted constitutes
+                agreement to the revised terms.</p>
+
+            <h2 className="text-2xl font-semibold mt-6 mb-4">7. Contact</h2>
+            <p className="mb-4">If you have any questions about these Terms and Conditions, please contact us at contactpaddleelk@gmail.com</p>
             <Link href="/" className="text-blue-600 hover:underline">
                 Return to Home
             </Link>
+
+
         </div>
     )
 }

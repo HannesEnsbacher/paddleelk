@@ -1,13 +1,13 @@
 
 export function generateMetadata() {
     return {
-        title: "Privacy Policy | PaddleTours",
-        description: "Read PaddleTours’ privacy policy to learn how we handle your data, protect your information, and ensure transparency in our services.",
-        keywords: ["PaddleTours privacy policy"],
+        title: "Privacy Policy | PaddleElk",
+        description: "Read PaddleElk’ privacy policy to learn how we handle your data, protect your information, and ensure transparency in our services.",
+        keywords: ["PaddleElk privacy policy"],
         openGraph: {
-            title: "Privacy Policy | PaddleTours",
-            description: "Understand how PaddleTours protects your personal data and ensures your privacy while using our services.",
-            url: "https://paddletours.eu/privacy",
+            title: "Privacy Policy | PaddleElk",
+            description: "Understand how PaddleElk protects your personal data and ensures your privacy while using our services.",
+            url: "https://paddleelk.eu/privacy",
             type: "article"
         }
     };
@@ -16,10 +16,10 @@ export function generateMetadata() {
 
 const PrivacyPolicy = () => {
     return (
-        <div className="max-w-4xl mx-auto p-6">
+        <div className="max-w-5xl mx-auto p-6">
             <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
             <p className="mb-4">
-                Last updated: <strong>[Insert Date]</strong>
+                Last updated: <strong>3/17/2025</strong>
             </p>
 
             <h2 className="text-xl font-semibold mt-6 mb-2">1. Introduction</h2>
@@ -41,8 +41,8 @@ const PrivacyPolicy = () => {
                     interactions with rental locations.
                 </li>
                 <li>
-                    <strong>LocalStorage</strong>: We store user-selected favorites
-                    locally on your device. This data is not sent to our servers.
+                    <strong>Local Storage</strong>: We store user-selected favorites
+                    locally on your browser. This data is not sent to our servers.
                 </li>
             </ul>
 
@@ -53,7 +53,7 @@ const PrivacyPolicy = () => {
             <ul className="list-disc pl-6 mt-2">
                 <li>Improving the usability of our website.</li>
                 <li>Understanding which rental locations receive the most interest.</li>
-                <li>Providing a personalized experience through localStorage-based favorites.</li>
+                <li>Providing a personalized experience through localstorage-based favorites.</li>
             </ul>
 
             <h2 className="text-xl font-semibold mt-6 mb-2">
@@ -76,7 +76,7 @@ const PrivacyPolicy = () => {
             <h2 className="text-xl font-semibold mt-6 mb-2">5. Data Storage</h2>
             <p>
                 We do not store personal data on our servers. Any favorite locations
-                saved by users are stored in their browser's localStorage and are not
+                saved by users are stored in their browser's localstorage and are not
                 accessible by us.
             </p>
 
@@ -100,7 +100,7 @@ const PrivacyPolicy = () => {
                 If you have any questions about this Privacy Policy, you can contact us at:
             </p>
             <p className="mt-2">
-                <strong>Email:</strong> [Your Contact Email]
+                <strong>Email:</strong> contactpaddleelk@gmail.com
             </p>
         </div>
     );

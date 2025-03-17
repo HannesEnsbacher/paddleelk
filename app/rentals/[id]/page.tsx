@@ -33,13 +33,13 @@ export async function generateMetadata({ params }) {
     // Fallback in case the rental data doesn't exist
     if (!rentalData) {
         return {
-            title: "Rental Not Found | PaddleTours",
+            title: "Rental Not Found | PaddleElk",
             description: "The kayak or canoe rental you are looking for could not be found.",
             keywords: ["kayak rental Sweden", "canoe rental Sweden", "rental not found"],
             openGraph: {
-                title: "Rental Not Found | PaddleTours",
+                title: "Rental Not Found | PaddleElk",
                 description: "Sorry, we couldn't find the rental you're looking for.",
-                url: `https://paddletours.eu/rental/${id}`,
+                url: `https://paddleelk.eu/rental/${id}`,
                 type: "website",
             }
         };
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }) {
 
     // Assuming rentalData contains these fields: name, location, description, and images
     return {
-        title: `${rentalData.name} | PaddleTours`,
+        title: `${rentalData.name} | PaddleElk`,
         description: `Find out more details about this location, including trip options, rental prices, and booking information.`,
         keywords: [
             "kayak rental Sweden",
@@ -57,9 +57,9 @@ export async function generateMetadata({ params }) {
             "best kayak rentals Sweden",
         ],
         openGraph: {
-            title: `${rentalData.name} | PaddleTours`,
+            title: `${rentalData.name} | PaddleElk`,
             description: `Find out more details about this location, including trip options, rental prices, and booking information.`,
-            url: `https://paddletours.eu/rental/${id}`,
+            url: `https://paddleelk.eu/rental/${id}`,
             type: "website",
         }
     };
@@ -123,8 +123,8 @@ export default async function RentalLocationDetailsPage({params}) {
                                             </TooltipTrigger>
                                             <TooltipContent>
                                                 <p>
-                                                    This price is an approximation for a 7-day rental. Actual prices
-                                                    may vary depending on the specific kayak, route, or tour chosen. <br/>
+                                                    This price is an approximation for a 7-day rental, even if the rental does not offer this as a standard package. <br/>
+                                                    Actual prices may vary depending on the specific kayak, route, or tour chosen. <br/>
                                                     Different rental providers may include different things in their prices. <br/>
                                                     Always check the rental provider's website for current pricing and included services.
                                                 </p>
@@ -230,7 +230,7 @@ export default async function RentalLocationDetailsPage({params}) {
                                     All rental providers are different and the way the information is displayed on this site may not represent each provider's current offerings in detail.
                                     The information provided is for reference only and may not be up to
                                     date. Always refer to the rental provider's website for the most accurate and current
-                                    information.
+                                    information. A lot of rental centers are open to special requests beyond their standard offerings.
                                 </AlertDescription>
                             </Alert>
                         </div>

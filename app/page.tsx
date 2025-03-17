@@ -6,20 +6,20 @@ import {MapPin, Compass, Map, Search, ClipboardList, SailboatIcon as Boat} from 
 
 export function generateMetadata() {
     return {
-        title: "Find the Best Kayak & Canoe Rentals in Sweden | PaddleTours",
-        description: "Discover top kayak and canoe rental locations in Sweden with PaddleTours. Explore multi-day trips, self-guided tours, and rental details—all in one place.",
+        title: "Find the Best Kayak & Canoe Rentals in Sweden | PaddleElk",
+        description: "Discover top kayak and canoe rental locations in Sweden with PaddleElk. Explore multi-day trips, self-guided tours, and rental details—all in one place.",
         keywords: ["kayak rental Sweden", "canoe rental Sweden", "kayak camping Sweden", "self-guided kayak tours", "Stockholm kayak rental"],
         openGraph: {
-            title: "Find the Best Kayak & Canoe Rentals in Sweden | PaddleTours",
+            title: "Find the Best Kayak & Canoe Rentals in Sweden | PaddleElk",
             description: "Easily find and compare kayak and canoe rental locations across Sweden. Plan your perfect adventure with our curated selection.",
-            url: "https://paddletours.eu",
+            url: "https://paddleelk.eu",
             type: "website",
             images: [
                 {
-                    url: "https://paddletours.com/landing-hero.jpg",
+                    url: "https://paddleelk.com/landing-hero.jpg",
                     width: 1200,
                     height: 630,
-                    alt: "PaddleTours homepage with an interactive kayak rental map"
+                    alt: "PaddleElk homepage with an interactive kayak rental map"
                 }
             ]
         }
@@ -46,7 +46,7 @@ export default function Home() {
                             <div className="w-full h-[50vh] lg:h-[60vh] relative rounded-lg overflow-hidden shadow-xl">
                                 <Image
                                     src="/landing-hero.jpg"
-                                    alt="Screenshot of PaddleTours’ interactive map showing kayak and canoe rental locations in Sweden."
+                                    alt="Screenshot of PaddleElk’ interactive map showing kayak and canoe rental locations in Sweden."
                                     style={{objectFit: "cover", objectPosition: "center top"}}
                                     sizes="100vw"
                                     fill
@@ -79,7 +79,7 @@ export default function Home() {
             {/* About Us / Why Choose Us Section */}
             <section className="py-16">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-8">Why Choose PaddleTours for Your Kayaking &
+                    <h2 className="text-3xl font-bold text-center mb-8">Why Choose PaddleElk for Your Kayaking &
                         Canoeing Adventure?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
@@ -123,7 +123,7 @@ export default function Home() {
             {/* How It Works Section */}
             <section className="py-16">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-12">How PaddleTours Helps You Plan Your Trip</h2>
+                    <h2 className="text-3xl font-bold text-center mb-12">How PaddleElk Helps You Plan Your Trip</h2>
                     <div className="max-w-3xl mx-auto relative">
                         {/* Vertical line */}
                         <div
