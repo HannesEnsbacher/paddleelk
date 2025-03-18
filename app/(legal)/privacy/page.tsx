@@ -1,3 +1,5 @@
+import {Mail} from "lucide-react";
+import Link from "next/link";
 
 export function generateMetadata() {
     return {
@@ -99,9 +101,16 @@ const PrivacyPolicy = () => {
             <p>
                 If you have any questions about this Privacy Policy, you can contact us at:
             </p>
-            <p className="mt-2">
-                <strong>Email:</strong> contactpaddleelk@gmail.com
-            </p>
+            <div className="flex items-center mb-4 mt-2">
+                <Mail className="mr-2"/>
+                <Link href="mailto:contactpaddleelk@gmail.com" className="text-primary hover:underline">
+                    contactpaddleelk@gmail.com
+                </Link>
+            </div>
+
+            <Link href="/" className="text-blue-600 hover:underline">
+                Return to Home
+            </Link>
         </div>
     );
 };

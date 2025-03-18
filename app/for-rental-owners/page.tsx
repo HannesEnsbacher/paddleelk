@@ -74,8 +74,8 @@ export default function RentalOwnersInfo() {
                 </p>
                 <div className="flex items-center">
                     <Mail className="mr-2"/>
-                    <Link href="mailto:contact@example.com" className="text-primary hover:underline">
-                        contact@example.com
+                    <Link href="mailto:contactpaddleelk@gmail.com" className="text-primary hover:underline">
+                        contactpaddleelk@gmail.com
                     </Link>
                 </div>
             </section>
