@@ -1,5 +1,6 @@
 import {createClient} from "@supabase/supabase-js"
 import type {Database} from "@/types/supabase.js"
+import {FeatureCollection, GeoJsonProperties, Point} from "geojson";
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
@@ -24,9 +25,9 @@ export interface Filters {
     favorites?: boolean
 }
 
-type RentalLocation = Database["public"]["Tables"]["rental_locations"]["Row"]
+export type RentalLocation = Database["public"]["Tables"]["rental_locations"]["Row"]
 
-export async function fetchRentalLocationsGeoJson() {
+export async function fetchRentalLocationsGeoJson() : Promise<FeatureCollection<Point, GeoJsonProperties>>{
     const {data, error} = await supabase
         .from("rental_locations")
         .select("*");
@@ -74,10 +75,13 @@ export async function fetchRentalLocationsGeoJson() {
 
 }
 
-export async function getRentalLocationById(id: string): Promise<RentalLocation | null> {
+export async function getRentalLocationById(id: number): Promise<RentalLocation | null> {
 
     const {data, error} = await supabase.from("rental_locations").select("*").eq("id", id).single()
-
+    if (error) {
+        console.error("Error fetching rental location:", error)
+        return null
+    }
 
     return data
 }

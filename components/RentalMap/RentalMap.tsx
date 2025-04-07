@@ -5,13 +5,18 @@ import {type Filters} from "@/lib/supabase"
 import {mapboxgl} from "@/lib/mapbox"
 import Sidebar from "./Sidebar"
 import MobileLocationCard from "./MobileLocationCard"
-import {FeatureCollection} from "geojson";
+import {FeatureCollection, GeoJsonProperties, Feature, Point, Position} from "geojson";
+import {GeoJSONSource, LngLatLike} from "mapbox-gl";
 
+interface RentalMapProps {
+    locations: FeatureCollection<Point, GeoJsonProperties>;
+}
 
-export default function RentalMap({locations: locationsGeoJson}: FeatureCollection) {
-    const [selectedLocation, setSelectedLocation] = useState(null)
-    const [filteredLocations, setFilteredLocations] = useState([])
-    const [favorites, setFavorites] = useState([])
+export default function RentalMap(locationsProperty: RentalMapProps) {
+    const locations = locationsProperty.locations
+    const [selectedLocation, setSelectedLocation] = useState<Feature<Point> | null>(null)
+    const [filteredLocations, setFilteredLocations] = useState<Feature<Point>[]>([])
+    const [favorites, setFavorites] = useState<Feature<Point>[]>([])
     const [filters, setFilters] = useState<Filters>({
         kayaks: false,
         canoes: false,
@@ -22,15 +27,15 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
         publicTransport: false,
         favorites: false,
     })
-    const mapContainerRef = useRef();
-    const mapRef = useRef();
+    const mapContainerRef = useRef<HTMLDivElement>(null);
+    const mapRef = useRef<mapboxgl.Map>(null);
 
-    const scrollAreaRef = useRef(null)
-    const locationRefs = useRef({})
+    const scrollAreaRef = useRef<HTMLDivElement | null>(null)
+    const locationRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
 
 
     useEffect(() => {
-        setFilteredLocations(locationsGeoJson.features)
+        setFilteredLocations(locations.features)
         if (mapContainerRef.current && !mapRef.current) {
             mapRef.current = new mapboxgl.Map({
                 container: mapContainerRef.current,
@@ -41,45 +46,40 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
 
 
             mapRef.current.on('load', () => {
+                if (!mapRef.current) {
+                    return;
+                }
                 mapRef.current.loadImage(
-                    './marker-gray.png',
+                    './marker-basic.png',
                     (error, image) => {
                         if (error) throw error
-                        mapRef.current.addImage('marker-gray', image);
+                        if (mapRef.current && image) {
+                            mapRef.current.addImage('marker-basic', image);
+                        }
                     }
                 )
                 mapRef.current.loadImage(
-                    './marker-orange.png',
+                    './marker-selected.png',
                     (error, image) => {
                         if (error) throw error
-                        mapRef.current.addImage('marker-orange', image);
+                        if (mapRef.current && image) {
+                            mapRef.current.addImage('marker-selected', image);
+                        }
                     }
                 )
                 mapRef.current.loadImage(
-                    './marker-red.png',
+                    './marker-favorite.png',
                     (error, image) => {
                         if (error) throw error
-                        mapRef.current.addImage('marker-red', image);
-                    }
-                )
-                mapRef.current.loadImage(
-                    './marker-green.png',
-                    (error, image) => {
-                        if (error) throw error
-                        mapRef.current.addImage('marker-green', image);
-                    }
-                )
-                mapRef.current.loadImage(
-                    './marker-blue.png',
-                    (error, image) => {
-                        if (error) throw error
-                        mapRef.current.addImage('marker-blue', image);
+                        if (mapRef.current && image) {
+                            mapRef.current.addImage('marker-favorite', image);
+                        }
                     }
                 )
 
                 mapRef.current.addSource('rental-locations', {
                     type: 'geojson',
-                    data: locationsGeoJson,
+                    data: locations,
                 });
 
                 mapRef.current.addLayer({
@@ -87,7 +87,7 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
                     'type': 'symbol',
                     'source': 'rental-locations',
                     'layout': {
-                        'icon-image': 'marker-orange',
+                        'icon-image': 'marker-basic',
                         'icon-anchor': 'bottom',
                         'icon-allow-overlap': true,
                     }
@@ -106,7 +106,7 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
                     'type': 'symbol',
                     'source': 'favorite-locations',
                     'layout': {
-                        'icon-image': 'marker-blue',
+                        'icon-image': 'marker-favorite',
                         'icon-anchor': 'bottom',
                         'icon-allow-overlap': true,
                     }
@@ -126,7 +126,7 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
                     'type': 'symbol',
                     'source': 'selected-feature',
                     'layout': {
-                        'icon-image': 'marker-green',
+                        'icon-image': 'marker-selected',
                         'icon-anchor': 'bottom',
                         'icon-allow-overlap': true,
                     }
@@ -136,9 +136,15 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
 
             mapRef.current.on('click', (e) => {
 
-                const [selectedLocation] = mapRef.current.queryRenderedFeatures(e.point, {
+                if (!mapRef.current) {
+                    return;
+                }
+                const [selectedLocationFeature] = mapRef.current.queryRenderedFeatures(e.point, {
                     layers: ['rental-locations-marker']
                 });
+
+                const selectedLocation: Feature<Point, GeoJsonProperties> =
+                    selectedLocationFeature as Feature<Point, GeoJsonProperties>;
 
                 if (selectedLocation) {
                     handleLocationSelectInMap(selectedLocation)
@@ -154,10 +160,11 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
                 mapRef.current = null
             }
         }
-    }, [locationsGeoJson])
+    }, [locations])
 
     useEffect(() => {
-        const filteredLocations = locationsGeoJson.features.filter((location) =>
+        const filteredLocations = locations.features.filter((location) =>
+            location.properties &&
             (!filters.kayaks || location.properties.offers_kayaks) &&
             (!filters.canoes || location.properties.offers_canoes) &&
             (!filters.remote || location.properties.is_remote) &&
@@ -167,28 +174,38 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
             (!filters.publicTransport || location.properties.is_reachable_by_public_transport) &&
             (!filters.favorites || favorites.includes(location)))
         setFilteredLocations(filteredLocations)
-    }, [filters]);
+    }, [filters, favorites, locations]);
 
     useEffect(() => {
-        if (mapRef.current.loaded()) {
+        if (mapRef.current && mapRef.current.loaded()) {
             mapRef.current.setFilter('rental-locations-marker', ['in', 'id', ...filteredLocations.map((location) => location.id)])
             mapRef.current.setFilter('favorite-locations-marker', ['in', 'id', ...filteredLocations.map((location) => location.id)])
             mapRef.current.setFilter('selected-feature-marker', ['in', 'id', ...filteredLocations.map((location) => location.id)])
             if (selectedLocation && !filteredLocations.includes(selectedLocation)) {
                 setSelectedLocation(null)
-                mapRef.current.getSource('selected-feature').setData({
-                    type: 'FeatureCollection',
-                    features: []
-                })
+                const selectedFeatureSource: GeoJSONSource | undefined = mapRef.current.getSource('selected-feature')
+                if (selectedFeatureSource) {
+                    selectedFeatureSource.setData({
+                        type: 'FeatureCollection',
+                        features: []
+                    })
+                }
+
             }
         }
-    }, [filteredLocations]);
+    }, [filteredLocations, selectedLocation]);
 
 
     useEffect(() => {
-        if (selectedLocation && locationRefs.current[selectedLocation.id] && scrollAreaRef.current) {
+        if (selectedLocation && selectedLocation.id && locationRefs.current[selectedLocation.id] && scrollAreaRef.current) {
             const scrollArea = scrollAreaRef.current.querySelector("[data-radix-scroll-area-viewport]")
+            if (!scrollArea) {
+                return;
+            }
             const locationElement = locationRefs.current[selectedLocation.id]
+            if (!locationElement) {
+                return;
+            }
             const scrollAreaRect = scrollArea.getBoundingClientRect()
 
 
@@ -197,17 +214,20 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
             const startScrollTop = scrollArea.scrollTop
             const distance = targetScrollTop - startScrollTop
             const duration = 300
-            let start = null
+            let start: number | null = null
 
-            function animation(currentTime) {
+            function animation(currentTime: number) {
                 if (start === null) start = currentTime
                 const timeElapsed = currentTime - start
                 const run = ease(timeElapsed, startScrollTop, distance, duration)
+                if (!scrollArea) {
+                    return;
+                }
                 scrollArea.scrollTop = run
                 if (timeElapsed < duration) requestAnimationFrame(animation)
             }
 
-            function ease(t, b, c, d) {
+            function ease(t: number, b: number, c: number, d: number) {
                 t /= d / 2
                 if (t < 1) return (c / 2) * t * t + b
                 t--
@@ -221,65 +241,98 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
     }, [selectedLocation])
 
     useEffect(() => {
-        if (mapRef.current.loaded()) {
+        if (mapRef.current && mapRef.current.loaded()) {
             if (favorites.length === 0) {
-                mapRef.current.getSource('favorite-locations').setData({
-                    type: 'FeatureCollection',
-                    features: [],
-                })
+                const favouriteLocationsSource: GeoJSONSource | undefined = mapRef.current.getSource('favorite-locations')
+                if (favouriteLocationsSource) {
+                    favouriteLocationsSource.setData({
+                        type: 'FeatureCollection',
+                        features: [],
+                    })
+                }
                 return;
             }
-            mapRef.current.getSource('favorite-locations').setData({
-                type: 'FeatureCollection',
-                features: favorites.map((loc) => ({
-                            type: 'Feature',
-                            geometry: loc.geometry,
-                            properties: loc.properties,
-                            id: loc.id,
-                        }
+            const favouriteLocationsSource: GeoJSONSource | undefined = mapRef.current.getSource('favorite-locations');
+            if (favouriteLocationsSource) {
+                favouriteLocationsSource.setData({
+                    type: 'FeatureCollection',
+                    features: favorites.map((loc) => ({
+                                type: 'Feature',
+                                geometry: loc.geometry,
+                                properties: loc.properties,
+                                id: loc.id,
+                            }
+                        )
                     )
-                )
-            })
+                })
+            }
         }
     }, [favorites]);
 
 
-    const handleLocationSelectInMap = (location) => {
+    const handleLocationSelectInMap = (location: Feature<Point>) => {
         handleLocationSelect(location);
     }
 
-    const handleLocationSelectInSidebar = (location) => {
+    const handleLocationSelectInSidebar = (location: Feature<Point>) => {
         handleLocationSelect(location);
         if (mapRef.current && location) {
-            mapRef.current.flyTo({
-                center: location.geometry.coordinates,
-                zoom: 12,
-            })
+            if (isStrictPosition(location.geometry.coordinates)) {
+                const centerCoordinates: LngLatLike | undefined = location.geometry.coordinates
+                mapRef.current.flyTo({
+                    center: centerCoordinates,
+                    zoom: 12,
+                })
+            } else {
+                throw new TypeError("Position is not a 2D point");
+
+            }
         }
     }
 
-    const handleLocationSelect = (location) => {
-        mapRef.current.getSource('selected-feature').setData({
-            type: 'FeatureCollection',
-            features: [
-                {
-                    type: 'Feature',
-                    geometry: location.geometry,
-                    properties: location.properties,
-                },
-            ],
+    const handleLocationSelect = (location: Feature<Point>) => {
+        if (mapRef.current) {
+            const selectedFeatureSource: GeoJSONSource | undefined = mapRef.current.getSource('selected-feature')
+            if (selectedFeatureSource) {
+                selectedFeatureSource.setData({
+                    type: 'FeatureCollection',
+                    features: [
+                        {
+                            type: 'Feature',
+                            geometry: location.geometry,
+                            properties: location.properties,
+                        },
+                    ],
 
-        })
-        setSelectedLocation(location)
+                })
+            }
+            setSelectedLocation(location)
+        }
+
+
+    }
+
+    type StrictPosition = [x: number, y: number]
+
+    function isStrictPosition(position: Position): position is StrictPosition {
+        return position.length === 2
     }
 
 
-    const toggleFavorite = (location) => {
+    const toggleFavorite = (location: Feature<Point>) => {
         setFavorites((prevFavorites) =>
             prevFavorites.includes(location)
                 ? prevFavorites.filter((loc) => loc !== location)
                 : [...prevFavorites, location],
         )
+    }
+
+    const isFavorite = (locationId: string | number | undefined): boolean => {
+        if (!locationId) {
+            return false;
+        }
+        return favorites.map(loc => loc.id === locationId)
+            .includes(true);
     }
 
     return (
@@ -306,7 +359,7 @@ export default function RentalMap({locations: locationsGeoJson}: FeatureCollecti
                 {selectedLocation && (
                     <MobileLocationCard
                         location={selectedLocation}
-                        isFavorite={favorites.includes(selectedLocation.id)}
+                        isFavorite={isFavorite(selectedLocation.id)}
                         toggleFavorite={toggleFavorite}
                     />
                 )}

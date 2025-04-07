@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import {Feature, Point} from "geojson";
 
 const badgeInfo = {
     kayaks: { label: "Kayaks", icon: <Boat className="w-3 h-3" />, dataKey: "has_kayaks" },
@@ -21,8 +22,16 @@ const badgeInfo = {
     guidedTours: { label: "Guided Tours", icon: <CompassIcon className="w-3 h-3" />, dataKey: "offers_guided_tours" },
     publicTransport: { label: "Public Transport", icon: <Bus className="w-3 h-3" />, dataKey: "has_public_transport" },
 }
+interface LocationCardProps {
+    location: Feature<Point>
+    isFavorite: boolean
+    toggleFavorite: (location: Feature<Point>) => void
+}
 
-export default function LocationCard({ location, isFavorite, toggleFavorite }) {
+export default function LocationCard({ location, isFavorite, toggleFavorite }: LocationCardProps) {
+    if (!location.properties) {
+        return null;
+    }
     return (
         <Card className="w-full max-w-md hover:bg-white shadow-lg hover:shadow-xl transition-all duration-200 border-border">
             <CardContent className="p-4">
@@ -57,7 +66,7 @@ export default function LocationCard({ location, isFavorite, toggleFavorite }) {
 
                 <div className="flex flex-wrap gap-2 mt-3">
                     {Object.entries(badgeInfo).map(([key, info]) => {
-                        if (location.properties[info.dataKey]) {
+                        if (location.properties && location.properties[info.dataKey]) {
                             return (
                                 <Badge key={key} variant="secondary" className="bg-primary-500 flex items-center gap-1">
                                     {info.icon}

@@ -4,11 +4,13 @@ import {useEffect, useRef} from "react";
 import {mapboxgl} from "@/lib/mapbox";
 import type {Database} from "@/types/supabase";
 
-type RentalLocation = Database["public"]["Tables"]["rental_locations"]["Row"]
+type RentalLocation = { rentalLocation: Database["public"]["Tables"]["rental_locations"]["Row"] }
 
-export default function DetailsMap({rentalLocation}: RentalLocation) {
-    const mapContainerRef= useRef();
-    const mapRef = useRef();
+
+export default function DetailsMap(rentalLocationProperty: RentalLocation) {
+    const rentalLocation = rentalLocationProperty.rentalLocation;
+    const mapContainerRef = useRef<HTMLDivElement>(null);
+    const mapRef = useRef<mapboxgl.Map>(null);
 
     useEffect(() => {
         if (mapContainerRef.current && !mapRef.current) {
@@ -19,12 +21,18 @@ export default function DetailsMap({rentalLocation}: RentalLocation) {
                 zoom: 10,
             })
 
+
             mapRef.current.on('load', () => {
+                if (!mapRef.current) {
+                    return;
+                }
                 mapRef.current.loadImage(
-                    '../marker-green.png',
+                    '../marker-selected.png',
                     (error, image) => {
                         if (error) throw error
-                        mapRef.current.addImage('marker-green', image);
+                        if (mapRef.current && image) {
+                            mapRef.current.addImage('marker-selected', image);
+                        }
                     }
                 )
 
@@ -53,11 +61,12 @@ export default function DetailsMap({rentalLocation}: RentalLocation) {
                     'type': 'symbol',
                     'source': 'rental-location',
                     'layout': {
-                        'icon-image': 'marker-green',
+                        'icon-image': 'marker-selected',
                         'icon-anchor': 'bottom',
                         'icon-allow-overlap': true,
                     }
                 });
+
             })
         }
 

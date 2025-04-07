@@ -26,7 +26,7 @@ const PrivacyPolicy = () => {
 
             <h2 className="text-xl font-semibold mt-6 mb-2">1. Introduction</h2>
             <p>
-                Welcome to our kayak and canoe rental finder ("Service"). Your privacy
+                Welcome to our kayak and canoe rental finder (&quot;Service&quot;). Your privacy
                 is important to us. This policy explains what data we collect and how we
                 use it in accordance with the General Data Protection Regulation (GDPR).
             </p>
@@ -64,7 +64,7 @@ const PrivacyPolicy = () => {
             <p>
                 We use Google Analytics (GA4) to analyze website traffic. Google may
                 collect data such as your IP address and interactions with the site. You
-                can opt out via Google's{" "}
+                can opt out via Google&apos;s{" "}
                 <a
                     href="https://tools.google.com/dlpage/gaoptout"
                     className="text-blue-500 underline"
@@ -78,7 +78,7 @@ const PrivacyPolicy = () => {
             <h2 className="text-xl font-semibold mt-6 mb-2">5. Data Storage</h2>
             <p>
                 We do not store personal data on our servers. Any favorite locations
-                saved by users are stored in their browser's localstorage and are not
+                saved by users are stored in their browser&apos;s localstorage and are not
                 accessible by us.
             </p>
 

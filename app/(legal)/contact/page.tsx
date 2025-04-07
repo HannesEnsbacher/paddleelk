@@ -20,8 +20,8 @@ export default function Contact() {
         <div className="container mx-auto px-4 py-8">
             <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
             <p className="mb-4">
-                We'd love to hear from you! If you have any questions about our kayak tours or are a rental owner with an inquiry about a listing,
-                please don't hesitate to get in touch.
+                We would love to hear from you! If you have any questions about our kayak tours or are a rental owner with an inquiry about a listing,
+                please do not hesitate to get in touch.
             </p>
             <div className="mb-6">
                 <h2 className="text-2xl font-semibold mb-2">Contact Information</h2>

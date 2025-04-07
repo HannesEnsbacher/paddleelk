@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { SiYoutube, SiInstagram, SiTiktok, SiReddit } from "react-icons/si";
+import { SiInstagram, SiTiktok, SiReddit } from "react-icons/si";
 export function Footer() {
     return (
         <footer className="bg-primary text-primary-foreground">

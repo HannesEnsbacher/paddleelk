@@ -23,12 +23,13 @@ import {Alert, AlertDescription} from "@/components/ui/alert"
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip"
 import DetailsMap from "@/components/DetailsMap/details-map"
 import {getRentalLocationById} from "@/lib/supabase";
+import {Metadata} from "next";
 
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({params}: { params: Promise<{ id: string }> }): Promise<Metadata> {
     const {id} = await params;
     // Fetch rental details based on the dynamic ID (for example purposes)
-    const rentalData = await getRentalLocationById(id);
+    const rentalData = await getRentalLocationById(parseInt(id));
 
     // Fallback in case the rental data doesn't exist
     if (!rentalData) {
@@ -66,12 +67,55 @@ export async function generateMetadata({ params }) {
 }
 
 
-export default async function RentalLocationDetailsPage({params}) {
+export default async function RentalLocationDetailsPage({params}: { params: Promise<{ id: string }> }) {
     const {id} = await params;
-    const rentalLocation = await getRentalLocationById(id);
+    const rentalLocation = await getRentalLocationById(parseInt(id));
     if (!rentalLocation) {
         throw new Error("Rental location not found");
     }
+    const rentalLocationDetails = [
+        {
+            icon: Bus,
+            label: rentalLocation.is_reachable_by_public_transport ? "Public transport available" : "No public transport",
+            tooltip: "Public transport may be available to reach this location. This depends on your specific starting location. If a rental offers pickup at a nearby station, we would consider this as reachable."
+        },
+        {
+            icon: Waves,
+            label: rentalLocation.is_by_coast ? "Coastal location" : "Inland location",
+            tooltip: null
+        },
+    ];
+    if (rentalLocation.is_remote) {
+        rentalLocationDetails.push({
+            icon: Navigation,
+            label: "Remote Tours",
+            tooltip: "Remote rental locations offer tours in more secluded areas, away from busy streets, neighborhoods, and urban distractions. Make sure to bring everything you need with you."
+        });
+    }
+    const rentalLocationServices = [
+        {icon: Kayak, label: "Kayaks", value: rentalLocation.offers_kayaks},
+        {icon: Canoe, label: "Canoes", value: rentalLocation.offers_canoes},
+        {
+            icon: ArrowRight,
+            label: "One-way tours",
+            value: rentalLocation.offers_one_way_trip
+        },
+        {
+            icon: UserCheck,
+            label: "Guided tours",
+            value: rentalLocation.offers_guided_tours
+        },
+        {
+            icon: Compass,
+            label: "Self-guided tours",
+            value: rentalLocation.offers_self_guided_tours
+        },
+        {
+            icon: Briefcase,
+            label: "Equipment rental",
+            value: rentalLocation.offers_equipment_rental
+        },
+    ]
 
     return (
         <TooltipProvider delayDuration={50}>
@@ -87,9 +131,10 @@ export default async function RentalLocationDetailsPage({params}) {
                                         <span>{rentalLocation.location_name}</span>
                                     </div>
                                 </CardHeader>
-                                {rentalLocation.description && <CardContent>
-                                    <p className="text-lg">{rentalLocation.description}</p>
-                                </CardContent>}
+                                {rentalLocation.description &&
+                                    <CardContent>
+                                        <p className="text-lg">{rentalLocation.description}</p>
+                                    </CardContent>}
                             </Card>
 
                             <Card>
@@ -108,8 +153,9 @@ export default async function RentalLocationDetailsPage({params}) {
                                             </TooltipTrigger>
                                             <TooltipContent>
                                                 <p>
-                                                    The rental period depends on the specific tour or package that is booked<br/>
-                                                    Check the rental provider's website for more information.
+                                                    The rental period depends on the specific tour or package that is
+                                                    booked<br/>
+                                                    Check the rental provider&apos;s website for more information.
                                                 </p>
                                             </TooltipContent>
                                         </Tooltip>
@@ -123,10 +169,14 @@ export default async function RentalLocationDetailsPage({params}) {
                                             </TooltipTrigger>
                                             <TooltipContent>
                                                 <p>
-                                                    This price is an approximation for a 7-day rental, even if the rental does not offer this as a standard package. <br/>
-                                                    Actual prices may vary depending on the specific kayak, route, or tour chosen. <br/>
-                                                    Different rental providers may include different things in their prices. <br/>
-                                                    Always check the rental provider's website for current pricing and included services.
+                                                    This price is an approximation for a 7-day rental, even if the
+                                                    rental does not offer this as a standard package. <br/>
+                                                    Actual prices may vary depending on the specific kayak, route, or
+                                                    tour chosen. <br/>
+                                                    Different rental providers may include different things in their
+                                                    prices. <br/>
+                                                    Always check the rental provider&apos;s website for current pricing
+                                                    and included services.
                                                 </p>
                                             </TooltipContent>
                                         </Tooltip>
@@ -141,35 +191,12 @@ export default async function RentalLocationDetailsPage({params}) {
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
-                                    {[
-                                        {icon: Kayak, label: "Kayaks", value: rentalLocation.offers_kayaks},
-                                        {icon: Canoe, label: "Canoes", value: rentalLocation.offers_canoes},
-                                        {
-                                            icon: ArrowRight,
-                                            label: "One-way tours",
-                                            value: rentalLocation.offers_one_way_trip
-                                        },
-                                        {
-                                            icon: UserCheck,
-                                            label: "Guided tours",
-                                            value: rentalLocation.offers_guided_tours
-                                        },
-                                        {
-                                            icon: Compass,
-                                            label: "Self-guided tours",
-                                            value: rentalLocation.offers_self_guided_tours
-                                        },
-                                        {
-                                            icon: Briefcase,
-                                            label: "Equipment rental",
-                                            value: rentalLocation.offers_equipment_rental
-                                        },
-                                    ].map(({icon: Icon, label, value}) => (
+                                    {rentalLocationServices.map(({icon: Icon, label, value}) => (
                                         <div key={label} className="flex items-center gap-2">
                                             <Icon className="w-4 h-4 text-card-foreground"/>
                                             <span>
-                    {label}: {value ? "Yes" : "No"}
-                  </span>
+                                                {label}: {value ? "Yes" : "No"}
+                                            </span>
                                         </div>
                                     ))}
                                 </CardContent>
@@ -182,42 +209,23 @@ export default async function RentalLocationDetailsPage({params}) {
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
-                                    {[
-                                        {
-                                            icon: Navigation,
-                                            label: rentalLocation.is_remote ? "Remote Tours" : null,
-                                            tooltip: "Remote rental locations offer tours in more secluded areas, away from busy streets, neighborhoods, and urban distractions."
-                                        },
-                                        {
-                                            icon: Bus,
-                                            label: rentalLocation.is_reachable_by_public_transport ? "Public transport available" : "No public transport",
-                                            tooltip: "Public transport may be available to reach this location. This depends on your specific starting location. If a rental offers pickup at a nearby station, we would consider this as reachable."
-                                        },
-                                        {
-                                            icon: Waves,
-                                            label: rentalLocation.is_by_coast ? "Coastal location" : "Inland location",
-                                            tooltip: null
-                                        },
-                                    ].map(({icon: Icon, label, tooltip}) => {
-                                            if (label) {
-                                                return (
-                                                    <div key={label} className="flex items-center gap-2">
-                                                        <Icon className="w-4 h-4 text-card-foreground"/>
-                                                        <span>{label}</span>
-                                                        {tooltip && <Tooltip>
-                                                            <TooltipTrigger>
-                                                                <Info className="w-4 h-4 ml-2 text-card-foreground"/>
-                                                            </TooltipTrigger>
-                                                            <TooltipContent>
-                                                                <p>
-                                                                    {tooltip}
-                                                                </p>
-                                                            </TooltipContent>
-                                                        </Tooltip>}
-                                                    </div>)
-                                            } else {
-                                                return null;
-                                            }
+                                    {rentalLocationDetails.map(({icon: Icon, label, tooltip}) => {
+                                        return (
+                                            <div key={label} className="flex items-center gap-2">
+                                                <Icon className="w-4 h-4 text-card-foreground"/>
+                                                <span>{label}</span>
+                                                {tooltip && <Tooltip>
+                                                    <TooltipTrigger>
+                                                        <Info className="w-4 h-4 ml-2 text-card-foreground"/>
+                                                    </TooltipTrigger>
+                                                    <TooltipContent>
+                                                        <p>
+                                                            {tooltip}
+                                                        </p>
+                                                    </TooltipContent>
+                                                </Tooltip>}
+                                            </div>
+                                            )
                                         }
                                     )}
                                 </CardContent>
@@ -227,10 +235,13 @@ export default async function RentalLocationDetailsPage({params}) {
                                 <AlertDescription>
                                     <strong>Please note:</strong> <br/>
                                     Bookings are made directly through the rental provider. <br/>
-                                    All rental providers are different and the way the information is displayed on this site may not represent each provider's current offerings in detail.
+                                    All rental providers are different and the way the information is displayed on this
+                                    site may not represent each provider&apos;s current offerings in detail.
                                     The information provided is for reference only and may not be up to
-                                    date. Always refer to the rental provider's website for the most accurate and current
-                                    information. A lot of rental centers are open to special requests beyond their standard offerings.
+                                    date. Always refer to the rental provider&apos;s website for the most accurate and
+                                    current
+                                    information. A lot of rental centers are open to special requests beyond their
+                                    standard offerings.
                                 </AlertDescription>
                             </Alert>
                         </div>
@@ -241,7 +252,7 @@ export default async function RentalLocationDetailsPage({params}) {
                                     <CardContent className="pt-6">
                                         <h3 className="text-xl font-semibold mb-2">Ready to book?</h3>
                                         <p className="mb-4">
-                                            Visit the rental provider's website for booking and more information.
+                                            Visit the rental provider&apos;s website for booking and more information.
                                         </p>
                                         <Button asChild size="lg"
                                                 className="w-full bg-popover text-accent-foreground hover:bg-accent">
@@ -276,9 +287,6 @@ export default async function RentalLocationDetailsPage({params}) {
                                 </Card>
                             </div>
                         </div>
-                    </div>
-                    <div className="mt-8">
-
                     </div>
                 </div>
             </div>

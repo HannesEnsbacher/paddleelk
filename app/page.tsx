@@ -299,7 +299,7 @@ export default function Home() {
                             <Link href="/explore">
                                 <Button
                                     size="lg"
-                                    variant="primary"
+                                    variant="default"
                                     className="bg-accent text-accent-foreground hover:bg-accent-500 transition-colors duration-300"
                                 >
                                     Explore Rental Locations

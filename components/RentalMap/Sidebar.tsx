@@ -1,12 +1,14 @@
 "use client"
 
-import {useState} from "react"
+import {RefObject, useState} from "react"
 import {Menu} from "lucide-react"
 import {Button} from "@/components/ui/button"
 import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"
 import {ScrollArea} from "@/components/ui/scroll-area"
 import LocationCard from "./LocationCard"
 import FiltersSection from "@/components/RentalMap/FilterSection";
+import {Feature, GeoJsonProperties, Point} from "geojson";
+import {Filters} from "@/lib/supabase";
 
 export default function Sidebar({
                                     locations,
@@ -18,7 +20,18 @@ export default function Sidebar({
                                     toggleFavorite,
                                     scrollAreaRef,
                                     locationRefs,
-                                }) {
+                                } :
+                                    {
+                                    locations: Feature<Point, GeoJsonProperties>[],
+                                    filters: Filters,
+                                    setFilters: (filters: Filters) => void,
+                                    selectedLocation: Feature<Point> | null,
+                                    onLocationSelect: (location: Feature<Point>) => void,
+                                    favorites: Feature<Point>[],
+                                    toggleFavorite: (location: Feature<Point>) => void,
+                                    scrollAreaRef: RefObject<HTMLDivElement | null>,
+                                    locationRefs: RefObject<{ [key: string]: HTMLDivElement | null }>,
+                                    }) {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
     return (
@@ -43,7 +56,7 @@ export default function Sidebar({
                         {locations.map((location) => (
                             <div
                                 key={location.id}
-                                ref={(el) => (locationRefs.current[location.id] = el)}
+                                ref={(el) => {if (location.id) {(locationRefs.current[location.id] = el)}}}
                                 className={`cursor-pointer ${
                                     selectedLocation?.id === location.id ? "ring-2 ring-primary-500 rounded-lg" : ""
                                 }`}

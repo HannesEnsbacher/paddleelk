@@ -38,8 +38,8 @@ export default function AboutPage() {
                         <p className="text-xl">
                             PaddleElk helps outdoor enthusiasts easily discover and compare the best kayak and canoe
                             rentals across Sweden. <br/>
-                            Whether you're looking for a self-guided tour, an adventure with a guide, a remote
-                            experience, or a weekend trip, we’ve got you covered.
+                            Whether you&apos;re looking for a self-guided tour, an adventure with a guide, a remote
+                            experience, or a weekend trip, we&apos;ve got you covered.
                         </p>
                     </div>
                     <div className="w-full lg:w-1/2 h-[300px] lg:h-[400px] relative rounded-lg overflow-hidden">
@@ -123,7 +123,7 @@ export default function AboutPage() {
                     <div className="lg:w-1/2">
                         <h2 className="text-3xl font-semibold mb-4">Meet the Team and Story Behind PaddleElk</h2>
                         <p className="text-xl">
-                            Well, it's just me for now. I am still a student and I just enjoy outdoor activities in
+                            Well, it&apos;s just me for now. I am still a student and I just enjoy outdoor activities in
                             general. I am definitely not the most experienced so if you have any suggestions, go ahead
                             and contact me!<br/>
                             I was planning trips with my friends and I noticed that it is hard to find rental places
@@ -154,11 +154,11 @@ export default function AboutPage() {
                 <section className="mb-16">
                     <h2 className="text-3xl font-semibold mb-4">Our Commitment to Sustainable Travel</h2>
                     <p className="text-xl">
-                        At PaddleElk, we're committed to promoting sustainable and responsible paddling practices.
+                        At PaddleElk, we&apos;re committed to promoting sustainable and responsible paddling practices.
                         We encourage
                         our users to respect the environment, follow Leave No Trace principles, and contribute to the
                         preservation
-                        of Sweden's beautiful waterways.
+                        of Sweden&apos;s beautiful waterways.
                     </p>
                 </section>
 
@@ -175,7 +175,7 @@ export default function AboutPage() {
                     <h2 className="text-3xl font-semibold mb-4">Get in Touch with PaddleElk</h2>
                     <p className="text-xl">
                         We welcome contributions from the paddling community! Whether you have a favorite spot to share
-                        or tips for fellow kayakers, we'd love to hear from you.
+                        or tips for fellow kayakers, we&apos;d love to hear from you.
                     </p>
                     <Button className="mt-6">Contact Us</Button>
                 </section>

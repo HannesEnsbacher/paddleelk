@@ -24,7 +24,7 @@ export default function RentalOwnersInfo() {
             <section className="mb-8">
                 <h2 className="text-2xl font-semibold mb-4 ">About Our Project</h2>
                 <p className="mb-4">
-                    Welcome to our platform! We've created this project to make it easier for adventure seekers to
+                    Welcome to our platform! We&apos;ve created this project to make it easier for adventure seekers to
                     find kayak and
                     canoe rental locations in Sweden. Our goal is to promote and support your businesses by
                     increasing visibility
@@ -56,7 +56,7 @@ export default function RentalOwnersInfo() {
                     <li>Provide additional information about your services</li>
                 </ul>
                 <p>
-                    Your satisfaction and the accuracy of our listings are paramount to us. We're here to support
+                    Your satisfaction and the accuracy of our listings are paramount to us. We&apos;re here to support
                     you
                     and ensure
                     that the information we provide about your rental location is up-to-date and correct.
@@ -69,7 +69,7 @@ export default function RentalOwnersInfo() {
                     We welcome any inquiries, feedback, or other requests. Whether you need to update your
                     information,
                     have questions about our platform, or are interested in exploring cooperation opportunities,
-                    please don't
+                    please don&apos;t
                     hesitate to reach out.
                 </p>
                 <div className="flex items-center">
@@ -83,8 +83,8 @@ export default function RentalOwnersInfo() {
             <section>
                 <h2 className="text-2xl font-semibold mb-4">Partnerships and Cooperation</h2>
                 <p className="mb-4">
-                    We're always open to exploring new ways to support and promote kayak and canoe rentals in
-                    Sweden. If you're
+                    We&apos;re always open to exploring new ways to support and promote kayak and canoe rentals in
+                    Sweden. If you&apos;re
                     interested in:
                 </p>
                 <ul className="list-disc list-inside mb-4">
@@ -94,7 +94,7 @@ export default function RentalOwnersInfo() {
                     <li>Any other ideas to enhance the kayaking and canoeing community</li>
                 </ul>
                 <p>
-                    We'd love to hear from you! Your insights and suggestions are valuable in helping us create the
+                    We&apos;d love to hear from you! Your insights and suggestions are valuable in helping us create the
                     best possible
                     resource for both rental owners and paddlers.
                 </p>

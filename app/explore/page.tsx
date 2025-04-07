@@ -1,5 +1,6 @@
 import {fetchRentalLocationsGeoJson} from "@/lib/supabase";
 import RentalMap from "@/components/RentalMap/RentalMap";
+import {FeatureCollection, GeoJsonProperties, Point} from "geojson";
 
 export function generateMetadata() {
     return {
@@ -24,8 +25,7 @@ export function generateMetadata() {
 }
 
 export default async function ExplorePage() {
-    const locationFeatures = await fetchRentalLocationsGeoJson()
-
+    const locationFeatures :FeatureCollection<Point, GeoJsonProperties> = await fetchRentalLocationsGeoJson()
     return (
         <RentalMap locations={locationFeatures}/>
     )

@@ -5,6 +5,8 @@ import {AlertTriangle, RefreshCw} from "lucide-react";
 import {Button} from "@/components/ui/button";
 
 export default function ErrorPage({ error }: { error: Error }) {
+
+    console.error("Error fetching rental locations:", error);
     const handleRefresh = () => {
         window.location.reload()
     }
@@ -21,7 +23,7 @@ export default function ErrorPage({ error }: { error: Error }) {
                 </CardHeader>
                 <CardContent>
                     <p className="text-sm text-card-foreground">
-                        We're sorry, but we couldn't fetch the information for this kayak rental. This could be due to a network
+                        We&apos;re sorry, but we couldn&apos;t fetch the information for this kayak rental. This could be due to a network
                         issue or a problem with our server.
                     </p>
                 </CardContent>
