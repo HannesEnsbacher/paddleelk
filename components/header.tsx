@@ -48,7 +48,7 @@ export function Header() {
                 <div className="flex justify-between items-center">
                     <Link href="/" className="flex items-center space-x-2">
                         {/*<Kayak className="h-8 w-8"/>*/}
-                        <Image src="/logo-full-color-svg.svg" alt="PaddleTrips Logo" width={192} height={38} />
+                        <Image src="/logo-full-color-png.png" alt="PaddleTrips Logo" width={192} height={38} />
                     </Link>
                     <nav className="hidden md:block">
                         <ul className="flex space-x-4">
