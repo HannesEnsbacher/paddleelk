@@ -350,12 +350,6 @@ export default function RentalMap(locationsProperty: RentalMapProps) {
             />
             <div className="flex-1 relative">
                 <div ref={mapContainerRef} className="absolute inset-0 w-full h-full"/>
-                {/*<LocationMarkers*/}
-                {/*    locations={locations.features}*/}
-                {/*    selectedLocation={selectedLocation}*/}
-                {/*    onLocationSelect={handleLocationSelectInMap}*/}
-                {/*    mapRef={mapRef}*/}
-                {/*/>*/}
                 {selectedLocation && (
                     <MobileLocationCard
                         location={selectedLocation}

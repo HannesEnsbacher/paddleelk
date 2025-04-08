@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://paddleelk.com
+Host: https://www.paddleelk.com
 
 # Sitemaps
-Sitemap: https://paddleelk.com/sitemap.xml
+Sitemap: https://www.paddleelk.com/sitemap.xml

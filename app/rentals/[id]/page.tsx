@@ -119,7 +119,7 @@ export default async function RentalLocationDetailsPage({params}: { params: Prom
 
     return (
         <TooltipProvider delayDuration={50}>
-            <div className="py-12">
+            <div className="lg:py-12">
                 <div className="container mx-auto px-4 py-8">
                     <div className="flex flex-col lg:flex-row gap-8">
                         <div className="lg:w-2/3 space-y-6">
