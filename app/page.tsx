@@ -37,8 +37,8 @@ export default function Home() {
                         <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 mb-6">Your Guide to the Best Kayak &
                             Canoe Rentals in Sweden</h1>
                         <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-                            Easily find and compare top rental locations for kayaking and canoeing in Sweden. Plan your
-                            perfect adventure with our curated selection.
+                            Easily find and compare top rental locations for kayaking and canoeing in Sweden. PaddleElk
+                            has a curated selection of rentals where you can start your multi-day paddling adventure.
                         </p>
                     </div>
                     <Link href="/explore" className="group block">
