@@ -13,16 +13,16 @@ const filterLabels = {
     favorites: "Favorites",
 }
 
-export default function FiltersSection({filters, setFilters}: {
+export default function MobileFiltersSection({filters, setFilters}: {
     filters: Filters,
     setFilters: (filters: Record<string, boolean>) => void
 }) {
     return (
         <div className="p-6 border-b shadow-md">
-            <h2 className="font-semibold text-lg mb-4">Filters</h2>
-            <div className="grid grid-cols-2 gap-3">
+            <h2 className="font-semibold text-xl mb-4">Filters</h2>
+            <div className="grid grid-cols-1">
                 {Object.entries(filters).map(([key, value]) => (
-                    <Label key={key} className="flex items-center space-x-2">
+                    <Label key={key} className="flex items-center space-x-2 mb-4 text-lg">
                         <Checkbox
                             checked={value}
                             onCheckedChange={(checked) => setFilters({...filters, [key]: checked as boolean})}

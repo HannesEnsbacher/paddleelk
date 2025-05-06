@@ -9,7 +9,7 @@ interface MobileLocationCardProps {
 
 export default function MobileLocationCard({ location, isFavorite, toggleFavorite }: MobileLocationCardProps) {
     return (
-        <div className="absolute z-20 left-1/2 transform -translate-x-1/2 bottom-80 md:hidden">
+        <div className="absolute z-20 left-1/2 transform -translate-x-1/2 bottom-40 md:hidden">
             <LocationCard location={location} isFavorite={isFavorite} toggleFavorite={toggleFavorite} />
         </div>
     )

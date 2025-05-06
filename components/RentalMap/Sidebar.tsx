@@ -3,12 +3,14 @@
 import {RefObject, useState} from "react"
 import {Menu} from "lucide-react"
 import {Button} from "@/components/ui/button"
-import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"
+import {Sheet, SheetContent, SheetTitle, SheetTrigger} from "@/components/ui/sheet"
 import {ScrollArea} from "@/components/ui/scroll-area"
 import LocationCard from "./LocationCard"
 import FiltersSection from "@/components/RentalMap/FilterSection";
 import {Feature, GeoJsonProperties, Point} from "geojson";
 import {Filters} from "@/lib/supabase";
+import MobileFiltersSection from "@/components/RentalMap/MobileFilterSection";
+import {VisuallyHidden} from "@radix-ui/react-visually-hidden";
 
 export default function Sidebar({
                                     locations,
@@ -39,12 +41,13 @@ export default function Sidebar({
             {/* Mobile Filters Drawer */}
             <Sheet open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
                 <SheetTrigger asChild>
-                    <Button variant="outline" size="icon" className="absolute top-4 left-4 z-50 md:hidden">
+                    <Button variant="outline" size="icon" className="absolute top-4 left-4 z-50 md:hidden bg-primary-50">
                         <Menu className="h-4 w-4"/>
                     </Button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-[350px] sm:w-[400px] p-0">
-                    <FiltersSection filters={filters} setFilters={setFilters}/>
+                <SheetContent side="left" className="w-[350px] sm:w-[400px] p-0 bg-white">
+                    <SheetTitle><VisuallyHidden>Filters</VisuallyHidden></SheetTitle>
+                    <MobileFiltersSection filters={filters} setFilters={setFilters}/>
                 </SheetContent>
             </Sheet>
 

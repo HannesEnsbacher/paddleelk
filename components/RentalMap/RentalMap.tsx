@@ -40,8 +40,8 @@ export default function RentalMap(locationsProperty: RentalMapProps) {
             mapRef.current = new mapboxgl.Map({
                 container: mapContainerRef.current,
                 style: "mapbox://styles/mapbox/outdoors-v11",
-                center: [14.507446, 58.685504], // Stockholm coordinates
-                zoom: 6.5,
+                center: [14.507446, 58.685504],
+                zoom: 5,
             })
 
 
@@ -271,6 +271,15 @@ export default function RentalMap(locationsProperty: RentalMapProps) {
 
 
     const handleLocationSelectInMap = (location: Feature<Point>) => {
+        if(window.innerWidth < 768 && mapRef.current && location) {
+            if (isStrictPosition(location.geometry.coordinates)) {
+                const centerCoordinates: LngLatLike | undefined = location.geometry.coordinates
+                mapRef.current.flyTo({
+                    center: centerCoordinates,
+                    zoom: 12,
+                })
+            }
+        }
         handleLocationSelect(location);
     }
 
