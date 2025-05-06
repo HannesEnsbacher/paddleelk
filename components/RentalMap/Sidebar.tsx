@@ -67,7 +67,7 @@ export default function Sidebar({
                             >
                                 <LocationCard
                                     location={location}
-                                    isFavorite={favorites.includes(location)}
+                                    isFavorite={favorites.map(favorite => favorite.id).includes(location.id)}
                                     toggleFavorite={toggleFavorite}
                                 />
                             </div>

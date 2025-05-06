@@ -36,6 +36,13 @@ export default function RentalMap(locationsProperty: RentalMapProps) {
 
     useEffect(() => {
         setFilteredLocations(locations.features)
+        const storedFavorites = localStorage.getItem('favorites');
+        let parsedFavorites: Feature<Point>[];
+        if (storedFavorites) {
+            parsedFavorites = JSON.parse(storedFavorites);
+            setFavorites(parsedFavorites);
+        }
+
         if (mapContainerRef.current && !mapRef.current) {
             mapRef.current = new mapboxgl.Map({
                 container: mapContainerRef.current,
@@ -93,13 +100,31 @@ export default function RentalMap(locationsProperty: RentalMapProps) {
                     }
                 });
 
-                mapRef.current.addSource('favorite-locations', {
-                    type: 'geojson',
-                    data: {
-                        type: 'FeatureCollection',
-                        features: [],
-                    }
-                })
+                if (parsedFavorites.length > 0) {
+                    mapRef.current.addSource('favorite-locations', {
+                        type: 'geojson',
+                        data: {
+                            type: 'FeatureCollection',
+                            features: parsedFavorites.map((loc) => ({
+                                        type: 'Feature',
+                                        geometry: loc.geometry,
+                                        properties: loc.properties,
+                                        id: loc.id,
+                                    }
+                                )
+                            )
+                        }
+                    })
+                } else {
+                    mapRef.current.addSource('favorite-locations', {
+                        type: 'geojson',
+                        data: {
+                            type: 'FeatureCollection',
+                            features: [],
+                        }
+                    })
+                }
+
 
                 mapRef.current.addLayer({
                     'id': 'favorite-locations-marker',
@@ -131,7 +156,6 @@ export default function RentalMap(locationsProperty: RentalMapProps) {
                         'icon-allow-overlap': true,
                     }
                 });
-
             })
 
             mapRef.current.on('click', (e) => {
@@ -267,11 +291,13 @@ export default function RentalMap(locationsProperty: RentalMapProps) {
                 })
             }
         }
+
+        localStorage.setItem('favorites', JSON.stringify(favorites));
     }, [favorites]);
 
 
     const handleLocationSelectInMap = (location: Feature<Point>) => {
-        if(window.innerWidth < 768 && mapRef.current && location) {
+        if (window.innerWidth < 768 && mapRef.current && location) {
             if (isStrictPosition(location.geometry.coordinates)) {
                 const centerCoordinates: LngLatLike | undefined = location.geometry.coordinates
                 mapRef.current.flyTo({
