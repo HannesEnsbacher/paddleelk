@@ -100,7 +100,7 @@ export default function RentalMap(locationsProperty: RentalMapProps) {
                     }
                 });
 
-                if (parsedFavorites.length > 0) {
+                if (parsedFavorites && parsedFavorites.length > 0) {
                     mapRef.current.addSource('favorite-locations', {
                         type: 'geojson',
                         data: {
@@ -356,8 +356,8 @@ export default function RentalMap(locationsProperty: RentalMapProps) {
 
     const toggleFavorite = (location: Feature<Point>) => {
         setFavorites((prevFavorites) =>
-            prevFavorites.includes(location)
-                ? prevFavorites.filter((loc) => loc !== location)
+            prevFavorites.map(prevFav => prevFav.id).includes(location.id)
+                ? prevFavorites.filter((loc) => loc.id !== location.id)
                 : [...prevFavorites, location],
         )
     }
