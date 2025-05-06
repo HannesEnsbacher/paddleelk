@@ -303,6 +303,7 @@ export default function RentalMap(locationsProperty: RentalMapProps) {
                 mapRef.current.flyTo({
                     center: centerCoordinates,
                     zoom: 12,
+                    offset: [0, -150],
                 })
             }
         }
