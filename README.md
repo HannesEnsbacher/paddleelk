@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kayak & Canoe Rental Finder
 
-## Getting Started
+A map-based web application for discovering kayak and canoe rental locations across Sweden, with a focus on small, often hard-to-find companies. Built as a personal project to explore MVP development, product thinking, and full-stack implementation.
 
-First, run the development server:
+## Project Background
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+I created this project after noticing how difficult it was to plan multi-day paddling trips in Sweden due to the fragmented online presence of small rental companies. This app aims to simplify that process by offering a centralized, user-friendly platform to explore rental locations via an interactive map.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+In addition to it being a technical learning opportunity, it also served as a sandbox for applying concepts from my tech-based entrepreneurship master’s studies, such as:
+- MVP-first development mindset
+- Early user research and problem validation
+- Lightweight agile planning and backlog management
+- Leveraging AI tools to accelerate iteration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🗺️ Interactive map of curated rental locations (Mapbox)
+- 📱 Mobile-responsive design
+- 📊 Analytics and cookie consent integration
+- 🛠️ MVP scope focused on usability and discoverability
+- ⚙️ Supabase as the backend
+- 🤖 AI-assisted development using tools like Vercel v0
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js](https://nextjs.org/)
+- [Supabase](https://supabase.com/)
+- [Mapbox](https://www.mapbox.com/)
+- TypeScript, Tailwind CSS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Status
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The project is currently a personal prototype and not actively maintained. Shared for portfolio purposes.
